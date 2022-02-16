@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineRight } from "react-icons/ai";
-import TrendingCard from "./TrendingCard";
+import SingleCard from "../Single Card/SingleCard";
 
 const Trending = () => {
   return (
@@ -15,10 +15,10 @@ const Trending = () => {
         </div>
 
         <div className="flex flex-wrap justify-between w-full gap-6">
-          <TrendingCard />
-          <TrendingCard />
-          <TrendingCard />
-          <TrendingCard />
+          <SingleCard />
+          <SingleCard />
+          <SingleCard />
+          <SingleCard />
         </div>
       </div>
     </div>

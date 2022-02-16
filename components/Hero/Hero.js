@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import { AiOutlineRight } from "react-icons/ai";
-import { getRecentPosts } from "../../Services";
 import RecentPosts from "./RecentPosts";
-const Hero = ({ categories, slug }) => {
-  const [recentPost, setRecentPost] = useState([]);
-
-  useEffect(() => {
-    // if (!slug) {
-    const getPostFunc = async () => {
-      const posts = await getRecentPosts();
-      setRecentPost(posts);
-    };
-    // }
-    getPostFunc();
-    console.log(recentPost);
-  }, []);
-
+const Hero = () => {
   return (
     <div className="flex flex-col items-center w-full gap-6 pt-6 pb-10">
       <div className="flex flex-col items-start w-full gap-14">

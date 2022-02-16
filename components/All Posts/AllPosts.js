@@ -1,7 +1,7 @@
 import React from "react";
 import SingleCard from "../Single Card/SingleCard";
 
-const AllPosts = ({ posts }) => {
+const AllPosts = ({ allBlogs }) => {
   return (
     <div className="flex flex-col items-start w-full gap-14">
       <div className="flex flex-col max-w-xs gap-3 border-l-8 border-black pt-[1px] pb-3 pl-3 dark:border-white">
@@ -12,17 +12,17 @@ const AllPosts = ({ posts }) => {
       </div>
 
       <div className="flex flex-wrap justify-center w-full gap-14">
-        {posts.map((post) => {
+        {allBlogs.map((blog) => {
           return (
             <SingleCard
-              key={post.node.id}
-              slug={post.node.slug}
-              title={post.node.title}
-              name={post.node.author.name}
-              //   date={new Date(post.node.createdAt)}
-              image={post.node.featuredImage.url}
-              date="Jan 12, 2021"
-              description={post.node.excerpt}
+              key={blog.slug}
+              slug={blog.slug}
+              title={blog.title}
+              name={blog.author.name}
+              //   date={new Date("Random"}
+              image={blog.coverImage}
+              date={blog.date}
+              description={blog.description}
             />
           );
         })}
