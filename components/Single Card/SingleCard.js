@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineRight } from "react-icons/ai";
 
@@ -8,7 +9,10 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
       <div className=" w-[300px]">
         <img
           className="object-cover h-44 w-[300px] rounded-t-2xl"
-          src={image || "Random"}
+          src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image}`}
+          width="300"
+          height="300"
+          // layout="fill"
           alt="JsBanner"
         />
       </div>
@@ -39,6 +43,7 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
         </div>
       </div>
     </div>
+    // <p>Hello</p>
   );
 };
 

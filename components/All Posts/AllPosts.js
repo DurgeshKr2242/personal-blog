@@ -12,17 +12,20 @@ const AllPosts = ({ allBlogs }) => {
       </div>
 
       <div className="flex flex-wrap justify-center w-full gap-14">
-        {allBlogs.map((blog) => {
+        {allBlogs.map((blog, i) => {
           return (
             <SingleCard
-              key={blog.slug}
-              slug={blog.slug}
-              title={blog.title}
-              name={blog.author.name}
+              key={blog.id}
+              // key={blog.attributes.id}
+              slug={blog.attributes.Slug}
+              title={blog.attributes.Title}
+              name={blog.attributes.author?.data.attributes.username}
               //   date={new Date("Random"}
-              image={blog.coverImage}
-              date={blog.date}
-              description={blog.description}
+              image={
+                blog.attributes.CoverImage.data.attributes.formats.medium.url
+              }
+              date={blog.attributes.createdAt}
+              description={blog.attributes.Description}
             />
           );
         })}

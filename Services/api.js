@@ -1,25 +1,18 @@
-import client from "./sanity";
-
-const blogFields = `
-    title,
-    subtitle,
-    description,
-    'slug' : slug.current,
-    date,
-    'coverImage' : coverImage.asset->url,
-    "author" : author->{name, "avatar" : avatar.asset->url},
-`;
-
+import axios from "axios";
+import QueryString from "qs";
+const query = QueryString.stringify(
+  { populate: "*" },
+  { encodeValuesOnly: true },
+  { fields: ["authors"] }
+);
 export const getAllBlogs = async () => {
-  const results = await client.fetch(`*[_type == "blog"]{${blogFields}}`);
-  return results;
+  const res = await axios.get(`http://localhost:1337/api/blogs?${query}`);
+  return res.data.data;
 };
 
 export const getBlogBySlug = async (slug) => {
-  const result = await client.fetch(
-    `*[_type =="blog" && slug.current ==$slug] {${blogFields}}`,
-    { slug }
+  const res = await axios.get(
+    `http://localhost:1337/api/blogs?filters[slug][$eq]=${slug}&${query}`
   );
-
-  return result[0];
+  return res.data.data;
 };

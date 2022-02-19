@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-import Comment from "./Comment";
 import PostDetails from "./PostDetails";
 import SingleRelatedPost from "./SingleRelatedPost";
+import Comment from "./Comment";
 
-const SinglePost = () => {
+const SinglePost = ({ blog }) => {
+  console.log(blog);
   return (
     <div className="flex gap-4">
       <div>
-        <PostDetails />
+        <PostDetails blogDetails={blog} />
         <Comment />
       </div>
       <div className="flex flex-col gap-8 max-w-[200px] ">
