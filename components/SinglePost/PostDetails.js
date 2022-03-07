@@ -16,7 +16,7 @@ const PostDetails = ({ blogDetails }) => {
   const renderers = {
     p: (paragraph) => {
       const { node } = paragraph;
-      console.log(paragraph.node);
+      // console.log(paragraph.node);
 
       if (node.children[0].tagName === "img") {
         const image = node.children[0];
@@ -73,7 +73,7 @@ const PostDetails = ({ blogDetails }) => {
             //   style={style}
             // >
             <pre
-              className={`w-full my-[1em] p-[0.5em] text-left whitespace-pre-wrap overflow-scroll break-all`}
+              className={`w-full my-[1em] p-[0.5em] text-left whitespace-pre-wrap break-all`}
               style={style}
             >
               {tokens.map((line, i) => (
@@ -87,11 +87,7 @@ const PostDetails = ({ blogDetails }) => {
                   </p>
                   <div className="table-cell text-sm">
                     {line.map((token, key) => (
-                      <span
-                        className="overflow-scroll"
-                        // className="whitespace-pre-wrap"
-                        {...getTokenProps({ token, key })}
-                      />
+                      <span {...getTokenProps({ token, key })} />
                     ))}
                   </div>
                   {/* </div> */}
