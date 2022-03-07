@@ -1,8 +1,34 @@
 import React, { useState, useEffect } from "react";
+import axios, { Axios } from "axios";
 
-import { AiOutlineRight } from "react-icons/ai";
+import { AiFillCaretRight } from "react-icons/ai";
+
 import RecentPosts from "./RecentPosts";
-const Hero = () => {
+import { getRecentBlogs } from "../../Services/api";
+const Hero = ({ recentBlogs }) => {
+  const [recentPosts, setRecentPosts] = useState([]);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setRecentPosts(recentBlogs);
+  }, []);
+
+  const leftHandler = () => {
+    if (index != 0) {
+      setIndex(index - 1);
+    } else {
+      setIndex(2);
+    }
+  };
+
+  const rightHandler = () => {
+    if (index != 2) {
+      setIndex(index + 1);
+    } else {
+      setIndex(0);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center w-full gap-6 pt-6 pb-10">
       <div className="flex flex-col items-start w-full gap-14">
@@ -18,8 +44,17 @@ const Hero = () => {
             Temporibus!
           </p>
         </div>
-
-        <RecentPosts />
+        <div className="relative w-full">
+          <AiFillCaretRight
+            onClick={leftHandler}
+            className="cursor-pointer font-semibold transition-colors  rounded-full  hover:text-Blue text-4xl absolute top-[50%] rotate-180 left-0 opacity-80"
+          />
+          <RecentPosts postData={recentPosts[index]} />
+          <AiFillCaretRight
+            onClick={rightHandler}
+            className="cursor-pointer font-semibold transition-colors  rounded-full  hover:text-Blue text-4xl absolute top-[50%]  right-0 opacity-80"
+          />
+        </div>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 bg-black rounded-full dark:bg-white"></div>

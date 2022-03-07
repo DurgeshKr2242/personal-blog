@@ -3,35 +3,36 @@ import React, { useState, useEffect } from "react";
 import PostDetails from "./PostDetails";
 import SingleRelatedPost from "./SingleRelatedPost";
 import Comment from "./Comment";
+import { AiFillLike } from "react-icons/ai";
+import { BiCommentDots } from "react-icons/bi";
+import LikeAndComment from "./LikeAndComment";
+import RightPane from "./RightPane";
+import { serialize } from "next-mdx-remote/serialize";
+
+// TODO Complete the like comment and likes feature along with the right pane after the BETA release
 
 const SinglePost = ({ blog }) => {
-  console.log(blog);
+  // const [mdxBlogDetails, setMdxBlogDetails] = useState(null);
+  // useEffect(() => {
+  //   const seralizeContent = async () => {
+  //     const detail = await serialize(blog.details);
+  //     setMdxBlogDetails(detail);
+  //     // console.log(detail);
+  //   };
+  //   seralizeContent();
+  // }, [blog]);
+
+  // console.log(blog);
+  const [likes, setLikes] = useState(blog?.Likes);
   return (
-    <div className="flex gap-4">
-      <div>
-        <PostDetails blogDetails={blog} />
-        <Comment />
-      </div>
-      <div className="flex flex-col gap-8 max-w-[200px] ">
-        {/* Realted post section */}
-
-        <div className="flex flex-col gap-0 shadow-md bg-gray-200/30 dark:bg-gray-900/30 rounded-2xl">
-          <div className="flex flex-col  gap-3 border-l-8 border-black pt-[1px] pb-3 pl-3 dark:border-white">
-            <p className="font-bold">Related Posts</p>
-          </div>
-          <SingleRelatedPost />;
-        </div>
-
-        {/* Tags */}
-
-        <div className="flex flex-col gap-0 shadow-md bg-gray-200/30 dark:bg-gray-900/30 rounded-2xl">
-          <div className="flex flex-col  gap-3 border-l-8 border-black pt-[1px] pb-3 pl-3 dark:border-white">
-            <p className="font-bold">Tags</p>
-          </div>
-
-          <p className="text-sm">Random category</p>
-        </div>
-      </div>
+    <div className="flex flex-col gap-4 tablet:flex-row">
+      {/* <div className="flex gap-3"> */}
+      {/* <LikeAndComment likes={blog.Likes} /> */}
+      {/* <div> */}
+      <PostDetails blogDetails={blog} />
+      {/* <Comment /> */}
+      {/* </div> */}
+      {/* <RightPane /> */}
     </div>
   );
 };

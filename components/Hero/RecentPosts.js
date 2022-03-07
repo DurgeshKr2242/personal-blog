@@ -1,34 +1,41 @@
 import React from "react";
+import { useRouter } from "next/router";
 import { AiOutlineRight } from "react-icons/ai";
-const RecentPosts = () => {
+
+const RecentPosts = ({ postData }) => {
+  console.log(postData);
+  const router = useRouter();
+
   return (
-    <div className="flex items-center justify-between w-full px-10 gap-14">
+    <div className="flex tablet:flex-row flex-col items-center justify-center w-full tablet:gap-40 gap-10 min-h-[342px] px-10">
       <img
-        className="max-w-lg shadow-lg rounded-3xl"
-        src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        className="max-w-xs mobileL:max-w-md tablet:max-w-lg rounded-3xl"
+        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${postData?.attributes?.CoverImage.data.attributes.formats.large.url}`}
         alt="CarPic"
       />
 
-      <div className="flex flex-col items-start max-w-2xl gap-10">
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <p className="text-gray-700 dark:text-gray-400">
+      <div className="flex flex-col items-center max-w-2xl gap-10 tablet:items-start ">
+        <div className="flex flex-col items-center gap-4 tablet:items-start">
+          <div className="flex flex-col items-center gap-2 tablet:items-start">
+            <p className="text-center text-gray-700 tablet:text-left dark:text-gray-400">
               <span className="font-semibold text-black dark:text-white">
                 Maintainance
               </span>
-              - October 30, 2021
+              - {postData?.attributes.createdAt}
             </p>
-            <p className="text-sm text-gray-700 dark:text-gray-400">
-              Durgesh Kumar
+            <p className="text-sm text-center text-gray-700 tablet:text-left dark:text-gray-400">
+              {postData?.attributes.author.data.attributes.username}
             </p>
           </div>
 
-          <p className="text-4xl font-bold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
-            dolor sit amet consectetur adipisicing elit.
+          <p className="text-4xl font-bold text-center  tablet:text-left">
+            {postData?.attributes.Title}
           </p>
         </div>
-        <button className="flex items-center gap-1 px-4 py-2 font-semibold text-white transition-colors bg-black rounded-full hover:bg-Blue dark:hover:bg-Blue dark:hover:text-white dark:text-black1 dark:bg-white">
+        <button
+          onClick={() => router.push(`/blogs/${postData?.attributes.Slug}`)}
+          className="flex items-center gap-1 px-4 py-2 font-semibold text-white transition-colors bg-black rounded-full hover:bg-Blue dark:hover:bg-Blue dark:hover:text-white dark:text-black1 dark:bg-white"
+        >
           Read Article <AiOutlineRight className="font-bold" />
         </button>
       </div>

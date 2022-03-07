@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { ImSun } from "react-icons/im";
 import { MdDarkMode } from "react-icons/md";
 
-import useDarkMode from "../../hooks/useDarkMode";
+import useDarkMode from "../../Hooks/useDarkMode";
+// import useDarkMode from "../../hooks/useDarkMode";
 const DarkModeSwitch = () => {
   const [darkTheme, setDarkTheme] = useDarkMode();
 

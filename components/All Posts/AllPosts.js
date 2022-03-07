@@ -16,11 +16,9 @@ const AllPosts = ({ allBlogs }) => {
           return (
             <SingleCard
               key={blog.id}
-              // key={blog.attributes.id}
               slug={blog.attributes.Slug}
               title={blog.attributes.Title}
               name={blog.attributes.author?.data.attributes.username}
-              //   date={new Date("Random"}
               image={
                 blog.attributes.CoverImage.data.attributes.formats.medium.url
               }

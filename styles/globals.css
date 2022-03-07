@@ -23,3 +23,26 @@ a {
 * {
   box-sizing: border-box;
 }
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+blockquote {
+  border-left: 3px solid;
+  padding-left: 15px;
+}
+
+a {
+  color: rgb(88, 88, 236);
+  text-decoration: rgb(88, 88, 236);
+
+  text-decoration: underline;
+}
