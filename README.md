@@ -1,4 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📑 Personal Blog (Underdevelopement 🚧)
+
+## 🟢 Features Implemented
+
+- Server Side Rendering with static site rendering.
+- Markdown using React Markdown.
+- Code syntax highlighting.
+- Custom SEO component with all the important meta tags.
+- Debouncing for the searchBlog Component.
+
+## 🟡 To be implemented
+
+- Structured Data for JSON-LD
+- Content clustering by implementing related post component.
+- Add sense
+- Analytics
+
+# 🧑‍💻 Tech Used So far
+
+- NextJS
+- Tailwind
+- StrapiCMS
+- ReactMarkdown
+- Prism React Renderer
+
+<!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -31,4 +56,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details. -->

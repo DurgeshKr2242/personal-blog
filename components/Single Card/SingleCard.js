@@ -16,23 +16,24 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
           alt="JsBanner"
         />
       </div>
+      <div className="flex flex-col justify-between h-full px-4 py-6">
+        <div className="flex flex-col gap-4 text-sm">
+          <div className="flex flex-col gap-1">
+            <p className="text-gray-700 dark:text-gray-400">
+              <span className="font-semibold text-black dark:text-white">
+                {title || "Random"}
+              </span>
+            </p>
 
-      <div className="flex flex-col gap-4 px-4 py-6 text-sm">
-        <div className="flex flex-col gap-1">
-          <p className="text-gray-700 dark:text-gray-400">
-            <span className="font-semibold text-black dark:text-white">
-              {title || "Random"}
-            </span>
-          </p>
+            <p className="text-xs text-gray-700 dark:text-gray-400">
+              {name || "Random"} - {date || "Random"}
+            </p>
+          </div>
 
-          <p className="text-xs text-gray-700 dark:text-gray-400">
-            {name || "Random"} - {date || "Random"}
+          <p className="text-sm text-left text-gray-700 dark:text-gray-400">
+            {description || "Random"}
           </p>
         </div>
-
-        <p className="text-sm text-left text-gray-700 dark:text-gray-400">
-          {description || "Random"}
-        </p>
         <div className="flex justify-end">
           <Link href={`/blogs/${slug || "Random"}`}>
             <a className="text-xs btn">

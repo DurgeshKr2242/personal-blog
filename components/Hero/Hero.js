@@ -47,19 +47,34 @@ const Hero = ({ recentBlogs }) => {
         <div className="relative w-full">
           <AiFillCaretRight
             onClick={leftHandler}
-            className="cursor-pointer font-semibold transition-colors  rounded-full  hover:text-Blue text-4xl absolute top-[50%] rotate-180 left-0 opacity-80"
+            className="cursor-pointer font-semibold transition-colors  rounded-full  hover:text-Red text-4xl absolute top-[50%] rotate-180 left-0 opacity-80"
           />
           <RecentPosts postData={recentPosts[index]} />
           <AiFillCaretRight
             onClick={rightHandler}
-            className="cursor-pointer font-semibold transition-colors  rounded-full  hover:text-Blue text-4xl absolute top-[50%]  right-0 opacity-80"
+            className="cursor-pointer font-semibold transition-colors  rounded-full  hover:text-Red text-4xl absolute top-[50%]  right-0 opacity-80"
           />
         </div>
       </div>
-      <div className="flex items-center gap-3">
-        <div className="w-8 h-8 bg-black rounded-full dark:bg-white"></div>
-        <div className="w-5 h-5 rounded-full dark:bg-white/50 bg-black/50"></div>
-        <div className="w-5 h-5 rounded-full dark:bg-white/50 bg-black/50"></div>
+      <div className="flex min-h-[32px] items-center gap-3">
+        <div
+          onClick={() => setIndex(0)}
+          className={`${
+            index === 0 ? "w-8 h-8" : "w-5 h-5"
+          } bg-black rounded-full dark:bg-white transition-all cursor-pointer duration-300`}
+        ></div>
+        <div
+          onClick={() => setIndex(1)}
+          className={`${
+            index === 1 ? "w-8 h-8" : "w-5 h-5"
+          } bg-black rounded-full dark:bg-white transition-all cursor-pointer duration-300`}
+        ></div>
+        <div
+          onClick={() => setIndex(2)}
+          className={`${
+            index === 2 ? "w-8 h-8" : "w-5 h-5"
+          } bg-black rounded-full dark:bg-white transition-all cursor-pointer duration-300`}
+        ></div>
       </div>
     </div>
   );

@@ -28,13 +28,13 @@ const RecentPosts = ({ postData }) => {
             </p>
           </div>
 
-          <p className="text-4xl font-bold text-center  tablet:text-left">
+          <p className="text-4xl font-bold text-center tablet:text-left">
             {postData?.attributes.Title}
           </p>
         </div>
         <button
           onClick={() => router.push(`/blogs/${postData?.attributes.Slug}`)}
-          className="flex items-center gap-1 px-4 py-2 font-semibold text-white transition-colors bg-black rounded-full hover:bg-Blue dark:hover:bg-Blue dark:hover:text-white dark:text-black1 dark:bg-white"
+          className="flex items-center gap-1 px-4 py-2 font-semibold text-white transition-colors bg-black rounded-full hover:bg-Red dark:hover:bg-Red dark:hover:text-white dark:text-black1 dark:bg-white"
         >
           Read Article <AiOutlineRight className="font-bold" />
         </button>

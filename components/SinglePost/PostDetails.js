@@ -2,9 +2,14 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
-
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
+
+import { BsTwitter } from "react-icons/bs";
+import { BsLinkedin } from "react-icons/bs";
+import { BsFacebook } from "react-icons/bs";
+import { BsWhatsapp } from "react-icons/bs";
+import { FaShareAlt } from "react-icons/fa";
 
 const PostDetails = ({ blogDetails }) => {
   const { Title, Description, Slug, Content, author, createdAt, CoverImage } =
@@ -110,20 +115,36 @@ const PostDetails = ({ blogDetails }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between object-contain w-full max-w-3xl gap-6 px-0 pt-6 shadow-md tablet:px-8 bg-gray-200/30 dark:bg-gray-900/30 rounded-2xl">
-      <div className="flex justify-start w-full ">
-        <p className="text-sm btn bg-Blue hover:underline">#Productivity</p>
-      </div>
+    <div className="flex flex-col items-center justify-between object-contain w-full max-w-3xl gap-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 rounded-2xl">
+      {/* <div className="flex justify-start w-full ">
+        <p className="text-sm btn bg-Red hover:underline">#Productivity</p>
+      </div> */}
 
       <img
-        className="object-cover w-full px-2 shadow-lg h-80 rounded-3xl"
+        className="object-cover w-full shadow-lg h-80 "
         src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${CoverImage.data?.attributes?.formats.large?.url}`}
         // layout="fill"
         alt={CoverImage.data?.attributes?.alternativeText}
       />
-      <div className="flex flex-col items-start gap-6 mobileL:max-w-4xl">
+      <div className="flex flex-col items-start gap-6 px-0 pt-6 mobileL:max-w-4xl tablet:px-8">
         <div className="flex flex-col w-full gap-4 ">
-          <h1 className="text-4xl font-bold text-center">{Title}</h1>
+          <div className="flex flex-col mb-10">
+            <h1 className="text-4xl font-bold text-left max-w-[80%] my-8">
+              {Title}
+            </h1>
+            <div className="w-40 h-2 bg-Red"></div>
+          </div>
+          <div className="flex items-center justify-between w-full p-3 bg-Red">
+            <p className="flex items-center gap-4 font-semibold">
+              <FaShareAlt /> Share This Article
+            </p>
+            <div className="flex gap-4 font-semibold">
+              <BsTwitter />
+              <BsLinkedin />
+              <BsWhatsapp />
+              <BsFacebook />
+            </div>
+          </div>
         </div>
         <div className="flex flex-col gap-2">
           <p className="text-left text-gray-700 dark:text-gray-400">
@@ -132,12 +153,49 @@ const PostDetails = ({ blogDetails }) => {
             </span>
           </p>
         </div>
-        <div className="flex flex-col object-contain w-full max-w-4xl gap-4 px-2 whitespace-pre-wrap wrap">
+        <div className="flex flex-col object-contain w-full max-w-4xl gap-6 px-2 whitespace-pre-wrap wrap">
           <ReactMarkdown
             children={Content}
             remarkPlugins={[remarkGfm, remarkBreaks]}
             components={renderers}
           />
+        </div>
+
+        <div className="flex flex-col items-center w-full gap-8 px-24 py-10 my-4 my-6 text-center bg-Red">
+          <p className="text-xl font-bold">
+            Get the latest articles from OurWeb in your inbox.
+          </p>
+          <div className="flex w-full">
+            <input
+              type="text"
+              className="w-full px-4 py-3 text-sm font-semibold dark:text-black placeholder:text-sm "
+              placeholder="Type your email here ..."
+            />
+            <button className="px-2 text-sm font-semibold uppercase bg-black whitespace-nowrap">
+              Send me Knowledge !
+            </button>
+          </div>
+          <p className="text-sm text-white/70">
+            No spam. Just new tutorials, course announcements, and updates from
+            OurWeb.
+          </p>
+        </div>
+
+        <div className="flex flex-col w-full gap-4 my-4">
+          <div className="flex items-center justify-between w-full p-3 bg-Red">
+            <p className="flex items-center gap-4 font-semibold">
+              <FaShareAlt /> Share This Article
+            </p>
+            <div className="flex gap-4 font-semibold">
+              <BsTwitter />
+              <BsLinkedin />
+              <BsWhatsapp />
+              <BsFacebook />
+            </div>
+          </div>
+          <div className="flex flex-col mt-10">
+            <div className="w-40 h-2 bg-Red"></div>
+          </div>
         </div>
       </div>
     </div>

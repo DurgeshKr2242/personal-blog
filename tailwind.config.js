@@ -19,12 +19,12 @@ module.exports = {
     },
     fontFamily: {
       display: ["Poppins", "sans-serif"],
-      body: ["Roboto", "sans-serif"],
+      body: ["IBM Plex Sans", "sans-serif"],
     },
     extend: {
       colors: {
         black1: "#130F40",
-        Blue: "#705AED",
+        Red: "#FF0000",
         white1: "#f5f7fa",
         white2: "#b8c6db",
         // bgBlack: "#0D1117",
@@ -32,7 +32,7 @@ module.exports = {
         // tWhite: "#E5E9F0",
         // tWhiteSec: "#bdc2c9",
         // yellow: "#8A6E35",
-        // tBlue: "#79C0FF",
+        // tRed: "#79C0FF",
       },
     },
   },
