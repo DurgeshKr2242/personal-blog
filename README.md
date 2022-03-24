@@ -2,20 +2,21 @@
 
 ## 🟢 Features Implemented
 
-- Server Side Rendering with static site rendering.
-- Markdown using React Markdown.
-- Code syntax highlighting.
-- Custom SEO component with all the important meta tags.
-- Debouncing for the searchBlog Component.
-- Added Sitemap at [https://localhost:3000/sitemap.xml](https://localhost:3000/sitemap.xml)
+- Server Side Rendering with static site rendering. 🔃
+- Markdown using React Markdown. 📝
+- Code syntax highlighting. 👨‍💻
+- Custom SEO component with all the important meta tags. 🥇
+- Debouncing for the searchBlog Component. ⌚
+- Added Sitemap at [http://localhost:3000/sitemap.xml](http://localhost:3000/sitemap.xml) 🛣️
 
 ## 🟡 To be implemented
 
 - Structured Data for JSON-LD
 - Content clustering by implementing related post component. (Will be doing only when i have enough blogs up and running on my site)
-- Mailing list
-- Add sense
-- Analytics
+- Mailing list 📨
+- Add sense 📺
+- Analytics (Only after deoloying) 📈
+- Scroll to top 🔝
 
 # 🧑‍💻 Tech Used So far
 

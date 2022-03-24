@@ -20,6 +20,7 @@ module.exports = {
     fontFamily: {
       display: ["Poppins", "sans-serif"],
       body: ["IBM Plex Sans", "sans-serif"],
+      logo: ["Bungee", "cursive"],
     },
     extend: {
       colors: {

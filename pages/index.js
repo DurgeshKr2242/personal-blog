@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Head from "next/head";
 import Hero from "../components/Hero/Hero";
 import Trending from "../components/Trending/Trending";
 import AllPosts from "../components/All Posts/AllPosts";
