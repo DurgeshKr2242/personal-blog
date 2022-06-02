@@ -5,6 +5,7 @@
 - Server Side Rendering with static site rendering. 🔃
 - Markdown using React Markdown. 📝
 - Code syntax highlighting. 👨‍💻
+- Share blog to social media like Twitter, Facebook, Whatsapp, LinkedIn. 🧑‍🏫
 - Custom SEO component with all the important meta tags. 🥇
 - Debouncing for the searchBlog Component. ⌚
 - Added Sitemap at [http://localhost:3000/sitemap.xml](http://localhost:3000/sitemap.xml) 🛣️
