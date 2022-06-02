@@ -11,7 +11,7 @@ const ShowPost = ({ blog }) => {
       <Seo
         title={blog[0]?.attributes.Title}
         description={blog[0]?.attributes.Description}
-        url={`http://localhost:3000/blogs/${blog[0]?.attributes.Slug}`}
+        url={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${blog[0]?.attributes.Slug}`}
         shareImage={`${process.env.NEXT_PUBLIC_STRAPI_URL}${blog[0]?.attributes.CoverImage.data?.attributes?.formats.large?.url}`}
         keywords={blog[0]?.attributes.keywords}
       />

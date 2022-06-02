@@ -161,17 +161,17 @@ const PostDetails = ({ blogDetails }) => {
           />
         </div>
 
-        <div className="flex flex-col items-center w-full gap-8 px-24 py-10 my-4 my-6 text-center bg-Red">
+        <div className="flex flex-col items-center w-full gap-8 px-8 py-10 my-6 text-center tablet:px-24 bg-Red">
           <p className="text-xl font-bold">
             Get the latest articles from OurWeb in your inbox.
           </p>
-          <div className="flex w-full">
+          <div className="flex flex-col w-full mobileL:flex-row">
             <input
               type="text"
               className="w-full px-4 py-3 text-sm font-semibold dark:text-black placeholder:text-sm "
               placeholder="Type your email here ..."
             />
-            <button className="px-2 text-sm font-semibold uppercase bg-black whitespace-nowrap">
+            <button className="px-2 py-3 text-sm font-semibold uppercase bg-black whitespace-nowrap">
               Send me Knowledge !
             </button>
           </div>
