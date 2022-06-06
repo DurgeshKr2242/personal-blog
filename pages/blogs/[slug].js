@@ -28,9 +28,10 @@ export default ShowPost;
 export async function getStaticProps({ params }) {
   const blog = await getBlogBySlug(params.slug);
 
-  console.log(blog);
+  // console.log(blog);
   return {
     props: { blog },
+    revalidate: 10,
   };
 }
 
@@ -42,6 +43,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }

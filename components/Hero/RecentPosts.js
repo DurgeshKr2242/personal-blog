@@ -2,8 +2,25 @@ import React from "react";
 import { useRouter } from "next/router";
 import { AiOutlineRight } from "react-icons/ai";
 
+const MONTHMAP = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "April",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
 const RecentPosts = ({ postData }) => {
-  console.log(postData);
+  const month = new Date(postData?.attributes.createdAt).getMonth();
+  const date1 = new Date(postData?.attributes.createdAt).getDate();
+  const year = new Date(postData?.attributes.createdAt).getFullYear();
   const router = useRouter();
 
   return (
@@ -21,7 +38,8 @@ const RecentPosts = ({ postData }) => {
               <span className="font-semibold text-black dark:text-white">
                 Maintainance
               </span>
-              - {postData?.attributes.createdAt}
+              {/* - {postData?.attributes.createdAt} */}-{" "}
+              {`${MONTHMAP[month]} ${date1}, ${year}`}
             </p>
             <p className="text-sm text-center text-gray-700 tablet:text-left dark:text-gray-400">
               {postData?.attributes.author.data.attributes.username}

@@ -3,7 +3,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineRight } from "react-icons/ai";
 
+const MONTHMAP = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "April",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 const SingleCard = ({ title, name, date, description, slug, image }) => {
+  const month = new Date(date).getMonth();
+  const date1 = new Date(date).getDate();
+  const year = new Date(date).getFullYear();
   return (
     <div className="flex flex-col w-[300px] bg-gray-200/30 dark:bg-gray-900/30 rounded-2xl shadow-md">
       <div className=" w-[300px]">
@@ -26,7 +43,8 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
             </p>
 
             <p className="text-xs text-gray-700 dark:text-gray-400">
-              {name || "Random"} - {date || "Random"}
+              {name || "Random"} -{" "}
+              {`${MONTHMAP[month]} ${date1}, ${year}` || "Random"}
             </p>
           </div>
 
