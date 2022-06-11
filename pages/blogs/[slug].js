@@ -1,23 +1,39 @@
-import React from "react";
+import { serialize } from "next-mdx-remote/serialize";
+// import { serialize } from "v8";
+import matter from "gray-matter";
+import fs from "fs";
+import path from "path";
 import SinglePost from "../../components/SinglePost/SinglePost";
 import Seo from "../../components/SEO/Seo";
 import Head from "next/head";
-import { getAllBlogs, getBlogBySlug } from "../../Services/api";
+// import { getAllBlogs, getBlogBySlug } from "../../Services/api";
+import { getAllBlogsForMdx } from "../../Services/mdx-api";
+// import { getBlogFromSlugForMdx } from "../../Services/mdx-api";
+import rehypeSlug from "rehype-slug";
+import rehypeHighlight from "rehype-highlight";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import "highlight.js/styles/atom-one-dark.css";
 
-const ShowPost = ({ blog }) => {
-  console.log("POSTS ARE : ---> ", blog);
+const ShowPost = ({ frontMatter, slug, mdxSource }) => {
+  // const ShowPost = ({ blog }) => {
+  // console.log("POSTS ARE : ---> ", blog);
+  // console.log(frontMatter);
   return (
     <div className=" flex flex-col items-center w-full bg-gradient-to-r from-white1 to-white2 dark:text-white dark:from-[#000000] dark:to-[#130F40]">
       <Seo
-        title={blog[0]?.attributes.Title}
-        description={blog[0]?.attributes.Description}
-        url={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${blog[0]?.attributes.Slug}`}
-        shareImage={`${process.env.NEXT_PUBLIC_STRAPI_URL}${blog[0]?.attributes.CoverImage.data?.attributes?.formats.large?.url}`}
-        keywords={blog[0]?.attributes.keywords}
+        title={frontMatter.title}
+        description={frontMatter.description}
+        url={slug}
+        shareImage={frontMatter.thumbnailUrl}
+        // keywords={frontMatter.tags}
       />
       {/* shareImage keywords */}
       <div className="flex flex-col items-center max-w-[1440px] px-0 mobileL:px-5 w-full pt-10 mb-10">
-        <SinglePost blog={blog[0]?.attributes} />
+        <SinglePost
+          frontMatter={frontMatter}
+          slug={slug}
+          mdxSource={mdxSource}
+        />
       </div>
     </div>
   );
@@ -25,24 +41,41 @@ const ShowPost = ({ blog }) => {
 
 export default ShowPost;
 
-export async function getStaticProps({ params }) {
-  const blog = await getBlogBySlug(params.slug);
-
-  // console.log(blog);
-  return {
-    props: { blog },
-    revalidate: 10,
-  };
-}
-
 export async function getStaticPaths() {
-  const blogs = await getAllBlogs();
+  const blogs = getAllBlogsForMdx();
   const paths = blogs?.map((blog) => ({
-    params: { slug: blog.attributes.Slug },
+    params: { slug: blog.slug },
   }));
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const slug = params.slug;
+  const markdownWithMeta = fs.readFileSync(
+    path.join("posts", slug + ".mdx"),
+    "utf-8"
+  );
+
+  const { data: frontMatter, content } = matter(markdownWithMeta);
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: "wrap" }],
+        rehypeHighlight,
+      ],
+    },
+  });
+
+  return {
+    props: {
+      frontMatter,
+      slug,
+      mdxSource,
+    },
   };
 }

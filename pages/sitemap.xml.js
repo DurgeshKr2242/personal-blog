@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import * as fs from "fs";
 
-import { getAllBlogs } from "../Services/api";
+import { getAllBlogsForMdx } from "../Services/mdx-api";
+// import { getAllBlogs } from "../Services/api";
 
 const Sitemap = () => {
   //   useEffect(() => {
@@ -38,11 +39,11 @@ export const getServerSideProps = async ({ res }) => {
   //   const dynamicPaths = [`${BASE_URL}/product/1`, `${BASE_URL}/product/2`];
   const dynamicPaths = [];
 
-  const allBlogs = await getAllBlogs();
+  const allBlogs = getAllBlogsForMdx();
   // console.log(allBlogs);
 
   allBlogs.map((blog) => {
-    dynamicPaths.push(`${BASE_URL}/blogs/${blog.attributes.Slug}`);
+    dynamicPaths.push(`${BASE_URL}/blogs/${blog.slug}`);
   });
 
   const allPaths = [...staticPaths, ...dynamicPaths];

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { DebounceInput } from "react-debounce-input";
+import Fuse from "fuse.js";
 
 import SearchResult from "./SearchResult";
 
 import { FaSearch } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
-import { getAllBlogs, getSearchBlogs } from "../../Services/api";
-
+// import { getSearchBlogsFormdx } from "../../Services/mdx-api";
 const SearchInput = () => {
   const [foundBlogs, setFoundBlogs] = useState([]);
 
@@ -19,10 +19,29 @@ const SearchInput = () => {
   const searchBlogs = (query) => {
     if (!query) return setFoundBlogs([]);
 
-    getSearchBlogs(query).then((res) => {
-      setFoundBlogs(res);
-      console.log(res);
-    });
+    const searchBlogs = JSON.parse(localStorage.getItem("AllBlogsForOurWeb"));
+    console.log("LOCALLL", searchBlogs);
+
+    const options = {
+      includeScore: true,
+      shouldSort: true,
+      threshold: 0.5,
+      keys: ["frontMatter.title"],
+    };
+
+    // const res = await axios.get(
+    //   `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?${query}`
+    // );
+
+    const fuse = new Fuse(searchBlogs, options);
+    const result = fuse.search(query);
+    setFoundBlogs(result);
+    // setFoundBlogs(getSearchBlogsFormdx(query));
+    console.log(result);
+    // .then((res) => {
+    //   setFoundBlogs(res);
+    //   console.log(res);
+    // });
   };
 
   return (

@@ -18,16 +18,18 @@ const MONTHMAP = [
 ];
 
 const RecentPosts = ({ postData }) => {
-  const month = new Date(postData?.attributes.createdAt).getMonth();
-  const date1 = new Date(postData?.attributes.createdAt).getDate();
-  const year = new Date(postData?.attributes.createdAt).getFullYear();
+  // console.log("RECENT POST IS THIS", postData);
+  // const month = new Date(postData?.attributes.createdAt).getMonth();
+  // const date1 = new Date(postData?.attributes.createdAt).getDate();
+  // const year = new Date(postData?.attributes.createdAt).getFullYear();
   const router = useRouter();
 
   return (
     <div className="flex tablet:flex-row flex-col items-center justify-center w-full tablet:gap-40 gap-10 min-h-[342px] px-10">
       <img
         className="max-w-xs mobileL:max-w-md tablet:max-w-lg rounded-3xl"
-        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${postData?.attributes?.CoverImage.data.attributes.formats.large.url}`}
+        src={postData.frontMatter.thumbnailUrl}
+        // src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${postData?.attributes?.CoverImage?.data?.attributes?.formats?.large?.url}`}
         alt="CarPic"
       />
 
@@ -39,19 +41,19 @@ const RecentPosts = ({ postData }) => {
                 Maintainance
               </span>
               {/* - {postData?.attributes.createdAt} */}-{" "}
-              {`${MONTHMAP[month]} ${date1}, ${year}`}
+              {postData.frontMatter.date}
             </p>
             <p className="text-sm text-center text-gray-700 tablet:text-left dark:text-gray-400">
-              {postData?.attributes.author.data.attributes.username}
+              {postData.frontMatter.author}
             </p>
           </div>
 
           <p className="text-4xl font-bold text-center tablet:text-left">
-            {postData?.attributes.Title}
+            {postData.frontMatter.title}
           </p>
         </div>
         <button
-          onClick={() => router.push(`/blogs/${postData?.attributes.Slug}`)}
+          onClick={() => router.push(`/blogs/${postData.slug}`)}
           className="flex items-center gap-1 px-4 py-2 font-semibold text-white transition-colors bg-black rounded-full hover:bg-Red dark:hover:bg-Red dark:hover:text-white dark:text-black1 dark:bg-white"
         >
           Read Article <AiOutlineRight className="font-bold" />

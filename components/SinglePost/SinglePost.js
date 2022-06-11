@@ -10,14 +10,18 @@ import RightPane from "./RightPane";
 
 // TODO Complete the like comment and likes feature along with the right pane after the BETA release
 
-const SinglePost = ({ blog }) => {
+const SinglePost = ({ frontMatter, slug, mdxSource }) => {
   // const [likes, setLikes] = useState(blog?.Likes);
   return (
     <div className="flex flex-col gap-4 tablet:flex-row">
       {/* <div className="flex gap-3"> */}
       {/* <LikeAndComment likes={blog.Likes} /> */}
       {/* <div> */}
-      <PostDetails blogDetails={blog} />
+      <PostDetails
+        frontMatter={frontMatter}
+        slug={slug}
+        mdxSource={mdxSource}
+      />
       {/* <Comment /> */}
       {/* </div> */}
       {/* <RightPane /> */}

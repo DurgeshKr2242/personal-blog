@@ -1,0 +1,285 @@
+---
+title: Passing Props in ReactJs
+date: "August 4, 2021"
+description: Why do we use props| Passing props from parent component to child component | Passing props from child component to parent component.
+thumbnailUrl: "data:image/png;base64,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"
+tags: ["functions", "javascript"]
+author: "Durgesh Kumar"
+createdAt: Sat Jun 11 2022 12:42:58 GMT+0530 (India Standard Time)
+---
+
+# Passing Props in ReactJs
+
+We'll look at how to pass props from parent component to child component and from child component to parent component.
+
+1. Why do we use props.
+2. How do we pass props
+
+2.1 Passing props from parent component to child component.
+
+2.2 Passing props from child component to parent component
+
+# 1. Why do we use props in React
+
+When we write react code, we frequently split it into different components for a variety of reasons, including code re-usability and readability. And in some cases, we need to communicate (transfer data) between different components. Props are one way to transfer data between react components.
+
+In React, we use props to pass data from one component to another, i.e. from a parent component to a child component. Although we cannot pass props from child to parent components, there are some workarounds that will be discussed in the blog.
+
+Props data is immutable (read-only)
+
+# 2. How do we pass props
+
+## 2.1 Passing props from parent component to child component.
+
+in this example, we have a  parent component(MainList) \*\*\*\*including another child component(ListItem):
+
+### Starting Example code
+
+This is our parent component:
+
+```jsx
+import React from "react";
+import ListItem from "./ListItem";
+
+const MainList = () => {
+  return (
+    <>
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+    </>
+  );
+};
+
+export default MainList;
+```
+
+This is our child component:
+
+```jsx
+import React from "react";
+
+const ListItem = () => {
+  return <p>ListItem Content</p>;
+};
+
+export default ListItem;
+```
+
+This is what our starter project looks like:
+
+![Screenshot from 2022-06-08 01-13-22.png](Passing%20Props%20in%20ReactJs%2049b46aa4e23440b490434635ea6bcbef/Screenshot_from_2022-06-08_01-13-22.png)
+
+### Passing props in parent component:
+
+Lets pass props from parent component to show dynamic content in each list item.
+
+This is how we pass props from parent component:
+
+```jsx
+import React from "react";
+import ListItem from "./ListItem";
+
+const MainList = () => {
+  return (
+    <>
+      <ListItem text="First list item" />
+      <ListItem text="Second list item" />
+      <ListItem text="Third list item" />
+      <ListItem text="Fourth list item" />
+    </>
+  );
+};
+
+export default MainList;
+```
+
+Here I’m declaring a **“text”** attribute to the **ChildComponent** i.e. ListItem and then assign a string value.
+
+### Accepting props in child component.
+
+Now that we have passed prop from parent component we now have to accept the prop in the child component. There are many ways in which we can accept props in a child component. We will stick to simple way of accepting the prop for this example but we will see other ways of accepting props in the later parts of the blog.
+
+This is how we accept props in child component:
+
+```jsx
+import React from "react";
+
+const ListItem = (props) => {
+  return <p>{props.text}</p>;
+};
+
+export default ListItem;
+```
+
+**Props** return back an object. In JavaScript, we can access object elements with **dot(.) notation**. In the above example, we render our **text** property with an interpolation.
+
+And the output we get is:
+
+![Screenshot from 2022-06-08 01-12-41.png](Passing%20Props%20in%20ReactJs%2049b46aa4e23440b490434635ea6bcbef/Screenshot_from_2022-06-08_01-12-41.png)
+
+## 2.2 Passing props from child component to parent component
+
+Data cannot be passed up from a child component to a parent component — at least not directly. But we have a workaround. We can pass functions as props.
+
+A function in the parent component can be passed to the child component via props. The function in the child component can then be executed to change data in the parent component.
+We can make the change dynamic by passing an argument while the function in the child component is being executed.
+
+### Starter example code.
+
+Let us understand it with an example.
+
+This is our parent component:
+
+```jsx
+import React, { useState } from "react";
+import ListItem from "./ListItem";
+
+const MainList = () => {
+  const [text, setText] = useState("Initial text");
+
+  const changeText = () => {
+    setText("Changed text");
+  };
+
+  return (
+    <>
+      <ListItem text={text} />
+      <ListItem text={text} />
+      <ListItem text={text} />
+      <ListItem text={text} />
+    </>
+  );
+};
+
+export default MainList;
+```
+
+Here we have a state **text** which has a initial value of “Initial text”. The parent component (`MainList`) is sending the **text** prop, which has the text state to the child component (ListItem). (We have already seen how to pass props from parent component to child component above in this blog). We also have a function **changeText** which changes the value of state from “Initial text” to “Changed text”.
+
+This is our child component:
+
+```jsx
+import React from "react";
+
+const ListItem = (props) => {
+  return <p>{props.text}</p>;
+};
+
+export default ListItem;
+```
+
+Here we are simply accepting props that we passed from the parent component above and displaying it.
+
+This is how the project looks at the moment.
+
+![Screenshot from 2022-06-09 00-55-45.png](Passing%20Props%20in%20ReactJs%2049b46aa4e23440b490434635ea6bcbef/Screenshot_from_2022-06-09_00-55-45.png)
+
+### Passing function as props from the Parent Component.
+
+Now lets pass changeText function as prop to the child component. Its same as passing any other props.
+
+```jsx
+import React, { useState } from "react";
+import ListItem from "./ListItem";
+
+const MainList = () => {
+  const [text, setText] = useState("Initail text");
+
+  const changeText = () => {
+    setText("Changed text");
+  };
+
+  return (
+    <>
+      <ListItem text={text} setText={changeText} />
+      <ListItem text={text} />
+      <ListItem text={text} />
+      <ListItem text={text} />
+    </>
+  );
+};
+
+export default MainList;
+```
+
+In the example above, the `MainList`component is sending the **setText** prop, which has the changeText function to change the state into the text to “Change text”.
+
+### Accepting function as prop in the child component
+
+Now that we sent the setText prop from the parent component, lets accept the prop in the child component and execute it to see the changes.
+
+```jsx
+import React from "react";
+
+const ListItem = (props) => {
+  return <p onClick={props.setText}>{props.text}</p>;
+};
+
+export default ListItem;
+```
+
+Now in the child component (ListItem) we have a onClick function on the paragraph tag which contains the setText prop that we are receiving from the parent component. So when we click on the paragraph tag it will execute the setText prop which contains changeText function and the text state will be changed to “Changed text”.
+
+![Screenshot from 2022-06-09 08-16-53.png](Passing%20Props%20in%20ReactJs%2049b46aa4e23440b490434635ea6bcbef/Screenshot_from_2022-06-09_08-16-53.png)
+
+And viola we just made a change in the parent component from the child component.
+
+But we are not actually sending any data from the child component to the parent component. We just did some action in the child component which caused some change in the parent component. . The change was not dynamic.
+
+We can do that by accepting arguments in the changeText function and passing parameters in the function when we execute the function in the child component.
+
+### Accepting argument in the function
+
+```jsx
+import React, { useState } from "react";
+import ListItem from "./ListItem";
+
+const MainList = () => {
+  const [text, setText] = useState("Initail text");
+
+  const changeText = (variableText) => {
+    setText(variableText);
+  };
+
+  return (
+    <>
+      <ListItem text={text} setText={changeText} />
+      <ListItem text={text} />
+      <ListItem text={text} />
+      <ListItem text={text} />
+    </>
+  );
+};
+
+export default MainList;
+```
+
+Here we are accepting variableText argument in the changeText function and setting the text state as the value of the variableText argument.
+
+The way of sending the function to the child component remains the same.
+
+### Passing parameters while executing the function in the child component
+
+```jsx
+import React from "react";
+
+const ListItem = (props) => {
+  return (
+    <p onClick={() => props.setText("Changed text using parameters")}>
+      {props.text}
+    </p>
+  );
+};
+
+export default ListItem;
+```
+
+Now when we click on the paragraph tag the text will get changed to whatever text we are passing as the argument in the function.
+
+![Screenshot from 2022-06-09 11-13-47.png](Passing%20Props%20in%20ReactJs%2049b46aa4e23440b490434635ea6bcbef/Screenshot_from_2022-06-09_11-13-47.png)
+
+This is how we pass data from child component to the parent component.
+
+# 3. Additional points on props

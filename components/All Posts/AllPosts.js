@@ -15,15 +15,13 @@ const AllPosts = ({ allBlogs }) => {
         {allBlogs.map((blog, i) => {
           return (
             <SingleCard
-              key={blog.id}
-              slug={blog.attributes.Slug}
-              title={blog.attributes.Title}
-              name={blog.attributes.author?.data.attributes.username}
-              image={
-                blog.attributes.CoverImage.data.attributes.formats.medium.url
-              }
-              date={blog.attributes.createdAt}
-              description={blog.attributes.Description}
+              key={blog.slug}
+              slug={blog.slug}
+              title={blog.frontMatter.title}
+              name={blog.frontMatter.author}
+              image={blog.frontMatter.thumbnailUrl}
+              date={blog.frontMatter.date}
+              description={blog.frontMatter.description}
             />
           );
         })}

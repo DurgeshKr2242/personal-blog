@@ -4,10 +4,17 @@ import Hero from "../components/Hero/Hero";
 import Trending from "../components/Trending/Trending";
 import AllPosts from "../components/All Posts/AllPosts";
 import axios from "axios";
-import { getAllBlogs, getRecentBlogs } from "../Services/api";
+// import { getAllBlogs, getRecentBlogs } from "../Services/api";
 import Seo from "../components/SEO/Seo";
+import { getAllBlogsForMdx, getRecentBlogsForMdx } from "../Services/mdx-api";
+// import fs from "fs";
+// import path from "path";
 
 export default function Home({ blogs, recentBlogs }) {
+  useEffect(() => {
+    localStorage.setItem("AllBlogsForOurWeb", JSON.stringify(blogs));
+  }, []);
+
   return (
     <div className=" flex flex-col items-center w-full bg-gradient-to-r from-white1 to-white2 dark:text-white dark:from-[#000000] dark:to-[#130F40]">
       <Seo
@@ -27,8 +34,11 @@ export default function Home({ blogs, recentBlogs }) {
 }
 
 export async function getStaticProps() {
-  const blogs = await getAllBlogs();
-  const recentBlogs = await getRecentBlogs();
+  const blogs = getAllBlogsForMdx();
+  // console.log("BLOGGGG:", blogs);
+  const recentBlogs = getRecentBlogsForMdx();
+  // console.log("TEMPPPP", temp);
+  // const recentBlogs = await getRecentBlogs();
   return {
     props: {
       blogs,

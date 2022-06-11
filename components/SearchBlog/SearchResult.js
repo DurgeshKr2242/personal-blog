@@ -10,12 +10,10 @@ const SearchResult = ({ foundBlogs }) => {
         return (
           <li
             key={i}
-            onClick={() =>
-              router.replace(`/blogs/${item.item.attributes.Slug}`)
-            }
+            onClick={() => router.replace(`/blogs/${item.item.slug}`)}
             className="border-b-[1px] border-gray-300 px-2 py-2 dark:border-gray-800 pb-2 cursor-pointer dark:hover:bg-black/20 hover:bg-gray-200"
           >
-            {item.item.attributes.Title}
+            {item.item.frontMatter.title}
           </li>
         );
       })}

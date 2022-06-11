@@ -26,7 +26,8 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
       <div className=" w-[300px]">
         <img
           className="object-cover h-44 w-[300px] rounded-t-2xl"
-          src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image}`}
+          // src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image}`}
+          src={image}
           width="300"
           height="300"
           // layout="fill"

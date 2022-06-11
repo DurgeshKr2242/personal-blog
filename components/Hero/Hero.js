@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import axios, { Axios } from "axios";
+import React, { useState } from "react";
 
 import { AiFillCaretRight } from "react-icons/ai";
 
 import RecentPosts from "./RecentPosts";
-import { getRecentBlogs } from "../../Services/api";
-const Hero = ({ recentBlogs }) => {
-  const [recentPosts, setRecentPosts] = useState([]);
-  const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    setRecentPosts(recentBlogs);
-  }, []);
+const Hero = ({ recentBlogs }) => {
+  // const [recentPosts, setRecentPosts] = useState([]);
+  const [index, setIndex] = useState(0);
+  // console.log("HHHH", recentBlogs[index]);
+  // useEffect(() => {
+  //   setRecentPosts(recentBlogs);
+  // }, []);
 
   const leftHandler = () => {
     if (index != 0) {
@@ -28,7 +27,6 @@ const Hero = ({ recentBlogs }) => {
       setIndex(0);
     }
   };
-
   return (
     <div className="flex flex-col items-center w-full gap-6 pt-6 pb-10">
       <div className="flex flex-col items-start w-full gap-14">
@@ -44,7 +42,8 @@ const Hero = ({ recentBlogs }) => {
             onClick={leftHandler}
             className="cursor-pointer font-semibold transition-colors  rounded-full  hover:text-Red text-4xl absolute top-[50%] rotate-180 left-0 opacity-80"
           />
-          <RecentPosts postData={recentPosts[index]} />
+          <RecentPosts postData={recentBlogs[index]} />
+          {/* <RecentPosts postData={recentPosts[index]} /> */}
           <AiFillCaretRight
             onClick={rightHandler}
             className="cursor-pointer font-semibold transition-colors  rounded-full  hover:text-Red text-4xl absolute top-[50%]  right-0 opacity-80"

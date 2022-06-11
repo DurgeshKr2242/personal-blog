@@ -1,0 +1,234 @@
+---
+title: implementing firebase storage in a react web app
+date: "August 4, 2021"
+description: Hello yall, this is going to be the first blog so let's get started. I'll be implementing firebase storage in a react web app, but the concept is the same in any technology, including vanilla javascript, Vue.Js, AngularJs, our good old jQuery, and others.
+thumbnailUrl: "data:image/png;base64,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"
+tags: ["functions", "javascript"]
+author: "Durgesh Kumar"
+createdAt: Sat Jun 11 2022 12:39:46 GMT+0530 (India Standard Time)
+---
+
+Hello yall, this is going to be first blog so let's get started.
+
+_I'll be implementing firebase storage in a react web app, but the concept is the same in any technology, including vanilla javascript, Vue.Js, AngularJs, our good old jQuery and others._
+
+# Intro to Firebase Storage
+
+[**According to official docs of firebase:**](https://firebase.google.com/docs/storage/web/start)
+
+> Cloud Storage for Firebase lets you upload and share user generated content, such as images and video, which allows you to build rich media content into your apps. Your data is stored in a Google Cloud Storage bucket — an exabyte scale object storage solution with high availability and global redundancy.
+
+**In simple words:**
+If you want to incorporate file upload or image upload in your web app (MERN app in our example), one method is to upload the file or image to Firebase's cloud storage and then collect the URL of the uploaded image file and put that URL in your database.
+
+### The user interface that we have:
+
+![Firebase Storage ui.png](http://localhost:1337/uploads/Firebase_Storage_ui_67742b2540.png)
+
+### Final Code
+
+**Here is the final completed code that we will have at the end of this blog. I am definitely gonna explain each and every line of code to you**
+
+```jsx
+//~~~ Logic for File Upload ~~~
+import {
+  uploadBytesResumable,
+  getDownloadURL,
+  ref,
+  deleteObject,
+} from "@firebase/storage";
+import { storage } from "../Firebase";
+
+function uploadTaskPromise(file) {
+  return new Promise(function (resolve, reject) {
+    if (!file) return;
+
+    const storageRef = ref(storage, `img/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        console.log(prog);
+      },
+      (error) => {
+        console.log("ERRRRR!!!!!!");
+        alert("Error inside upload file function", error);
+        reject();
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File available at", downloadURL);
+          resolve(downloadURL);
+        });
+      }
+    );
+  });
+}
+
+//~~~ Logic for Post request to backend ~~~
+
+const postSubmitHandler = async (e) => {
+  e.preventDefault();
+
+  try {
+    storageURL = await uploadTaskPromise(file);
+
+    const response = await fetch("http://localhost:5000/api/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify({
+        location,
+        description,
+        price,
+        contact,
+        breed,
+        creatorId: currentUser.id,
+        image: storageURL,
+      }),
+    });
+    console.log("REQUEST SENT");
+  } catch (err) {
+    const deleteImgRef = ref(storage, `img/${file.name}`);
+    deleteObject(deleteImgRef)
+      .then(() => {
+        console.log("Something Went wrong, Image deleted successfully");
+      })
+      .catch((error) => {
+        console.log("an error occured while deleting image", error);
+      });
+  }
+};
+```
+
+### Creating Firebase Config file
+
+If you’re already using npm and a module bundler such as webpack or Rollup, you can run the following command to install the latest SDK:
+`npm install firebase`
+
+Then, initialize Firebase and begin using the SDKs for the web app. In our case we will only be using the storage SDK.
+
+Before we move to the next step I am imagining that you already have created your project in Firebase.
+To initialize Firebase first create a new file and name it as `firebase.js`. Now copy the code bellow and paste it in the firebase.js file that you just created.
+
+```js
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
+
+const firebaseConfig = {
+  //PASTE YOUR FIREBASE CONFIG HERE
+};
+
+const app = initializeApp(firebaseConfig);
+
+const storage = getStorage(app);
+
+export { storage, app };
+```
+
+Now go Project settings by clicking of the cog wheel icon in the left menu of your firebase project. Then scroll down and just copy what ever you have in your firebaseConfig constant and paste it inside the firebaseConfig constant that we created in our firebase.js file.
+
+**Now we can use the Firebase storage SDK in our app wherever we want.**
+
+### Creating the upload file function
+
+**Now we go to the the file where we are creating the post.**
+
+```js
+import { uploadBytesResumable, ref } from "@firebase/storage";
+import { storage } from "../Firebase";
+
+function uploadTaskPromise(file) {
+  if (!file) return;
+
+  const storageRef = ref(storage, `img/${file.name}`);
+  const uploadTask = uploadBytesResumable(storageRef, file);
+}
+```
+
+We import the required dependencies.
+Create a new function and name it as `uploadTaskPromise` which accepts a file as a parameter.
+Now, In order to upload or download files, delete files, or get or update metadata, you must create a reference to the file you want to operate on. A reference can be thought of as a pointer to a file in the cloud. References are lightweight, so you can create as many as you need, and they are also reusable for multiple operations.
+Once the reference is created we then create an uploadTask by passing our reference and the file that we want to upload as parameters to `uploadBytesResumable`.
+
+### Uploading the file
+
+```js
+import {
+  uploadBytesResumable,
+  getDownloadURL,
+  ref,
+  deleteObject,
+} from "@firebase/storage";
+import { storage } from "../Firebase";
+
+function uploadTaskPromise(file) {
+  return new Promise(function (resolve, reject) {
+    if (!file) return;
+
+    const storageRef = ref(storage, `img/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        console.log(prog);
+      },
+      (error) => {
+        console.log("ERRRRR!!!!!!");
+        alert("Error inside upload file function", error);
+        reject();
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File available at", downloadURL);
+          resolve(downloadURL);
+        });
+      }
+    );
+  });
+}
+```
+
+Once we have our uploadTask ready we can now move to the actual logic of uploading our file to the cloud storage.
+The uploadTask has an `.on` method which registers three observers.
+
+1. 'state_changed' observer, called any time the state changes
+2. Error observer, called on failure
+3. Completion observer, called on successful completion
+
+**1. The first observer** observe state change events such as progress, pause, and resume. We also get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded using which we can get the total percentage that has been uploaded in real time.
+**2. The second observer** handles any unsuccessful uploads. In this block we can handle any error that we might get while uploading the file.
+**3. The third observer** and the most important observer handles successful uploads on complete. We can extract the url of the uploaded file so that we can store the URL of the file in our database rather then storing the entire files in our database.
+
+Now uploading file to cloud storage is an asynchronous task so we wrap the entire thing in a promise. We return a new promise which rejects if it reaches the `error block` or the `second observer` and resolves with the uploaded file url on successful completion of our upload.
+
+### Upload Post Logic
+
+Once we have the logic to upload file to cloud storage ready we now can move on to the logic to store the URL in our database by sending a post request to our backend.
+We create a new function named postSubmitHandler which is fired whenever we click on Post button. And we declare the function as an async function because storing data into database and uploading file to the storage are both asynchronous task.
+
+First and the most important thing to keep in in mind is to do `e.preventDefault()` or else the page will refresh whenever we click on Post button and our **CODE WILL BLOW UP**.
+Next thing we do is to wrap our entire logic in a `Try Catch` block for that extra layer of precaution.
+
+Now in the `Try` block we call our `uploadTaskPromise` and pass the file we need to upload as a parameter. Don't forget to put the await keyword. Now if the upload task is successful then the promise gets resolved with our stored file URL and we store that URL in a constant `storageUrl`. In case the upload fails we reject the promise and we are thrown into the catch block where we can handle the error.
+Now that we have the url all we need to do is to send a POST request to our backend.
+
+The final consideration is what happens if we successfully store files to cloud storage but fail to store data to our database. We will still be tossed to the catch block, but the downloaded file will remain in our cloud storage, doing nothing except wasting storage space.
+To handle this, we must remove the file that we saved to our storage by generating a reference to the file that has to be deleted, similar to the reference that we generated while uploading our file to the storage.
+Once we have the reference we can then call `deleteObject` that we import from `@firebase/storage` and pass the reference to it.
+This will delete the file that we stored in our storage if something goes wrong while storing our data to database.
+
+>
+
+**Thank you for your time.
+Save the post so you may refer to it if you wish to use firebase storage in the future.**
