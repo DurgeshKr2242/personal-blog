@@ -1,5 +1,4 @@
 import { serialize } from "next-mdx-remote/serialize";
-// import { serialize } from "v8";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
@@ -8,16 +7,21 @@ import Seo from "../../components/SEO/Seo";
 import Head from "next/head";
 // import { getAllBlogs, getBlogBySlug } from "../../Services/api";
 import { getAllBlogsForMdx } from "../../Services/mdx-api";
+import { useEffect } from "react";
 // import { getBlogFromSlugForMdx } from "../../Services/mdx-api";
 import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeCodeTitles from "rehype-code-titles";
 import "highlight.js/styles/atom-one-dark.css";
 
-const ShowPost = ({ frontMatter, slug, mdxSource }) => {
+const ShowPost = ({ frontMatter, slug, mdxSource, blogs }) => {
   // const ShowPost = ({ blog }) => {
   // console.log("POSTS ARE : ---> ", blog);
   // console.log(frontMatter);
+  useEffect(() => {
+    localStorage.setItem("AllBlogsForOurWeb", JSON.stringify(blogs));
+  }, []);
   return (
     <div className=" flex flex-col items-center w-full bg-gradient-to-r from-white1 to-white2 dark:text-white dark:from-[#000000] dark:to-[#130F40]">
       <Seo
@@ -25,6 +29,8 @@ const ShowPost = ({ frontMatter, slug, mdxSource }) => {
         description={frontMatter.description}
         url={slug}
         shareImage={frontMatter.thumbnailUrl}
+        author={frontMatter.author}
+        createdAt={frontMatter.createdAt}
         // keywords={frontMatter.tags}
       />
       {/* shareImage keywords */}
@@ -54,6 +60,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  const blogs = getAllBlogsForMdx();
+
   const slug = params.slug;
   const markdownWithMeta = fs.readFileSync(
     path.join("posts", slug + ".mdx"),
@@ -64,6 +72,7 @@ export async function getStaticProps({ params }) {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       rehypePlugins: [
+        rehypeCodeTitles,
         rehypeSlug,
         [rehypeAutolinkHeadings, { behavior: "wrap" }],
         rehypeHighlight,
@@ -73,6 +82,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
+      blogs,
       frontMatter,
       slug,
       mdxSource,

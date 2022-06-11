@@ -28,20 +28,10 @@ const SearchInput = () => {
       threshold: 0.5,
       keys: ["frontMatter.title"],
     };
-
-    // const res = await axios.get(
-    //   `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?${query}`
-    // );
-
     const fuse = new Fuse(searchBlogs, options);
     const result = fuse.search(query);
     setFoundBlogs(result);
-    // setFoundBlogs(getSearchBlogsFormdx(query));
-    console.log(result);
-    // .then((res) => {
-    //   setFoundBlogs(res);
-    //   console.log(res);
-    // });
+    // console.log(result);
   };
 
   return (

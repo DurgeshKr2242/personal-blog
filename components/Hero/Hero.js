@@ -16,12 +16,12 @@ const Hero = ({ recentBlogs }) => {
     if (index != 0) {
       setIndex(index - 1);
     } else {
-      setIndex(2);
+      setIndex(1);
     }
   };
 
   const rightHandler = () => {
-    if (index != 2) {
+    if (index != 1) {
       setIndex(index + 1);
     } else {
       setIndex(0);
@@ -63,12 +63,12 @@ const Hero = ({ recentBlogs }) => {
             index === 1 ? "w-8 h-8" : "w-5 h-5"
           } bg-black rounded-full dark:bg-white transition-all cursor-pointer duration-300`}
         ></div>
-        <div
+        {/* <div
           onClick={() => setIndex(2)}
           className={`${
             index === 2 ? "w-8 h-8" : "w-5 h-5"
           } bg-black rounded-full dark:bg-white transition-all cursor-pointer duration-300`}
-        ></div>
+        ></div> */}
       </div>
     </div>
   );
