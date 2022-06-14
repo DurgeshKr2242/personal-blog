@@ -18,9 +18,15 @@ const Sitemap = () => {
 
 export const getServerSideProps = async ({ res }) => {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-
+  console.log(process.env.NEXT_PUBLIC_ENV_TYPE);
   const staticPaths = fs
-    .readdirSync("pages")
+    .readdirSync(
+      process.env.NEXT_PUBLIC_ENV_TYPE == "development" ? "pages" : "./"
+      // {
+      //   development: "pages",
+      //   production: "./",
+      // }[process.env.NODE_ENV]
+    )
     .filter((staticPage) => {
       return ![
         "api",
