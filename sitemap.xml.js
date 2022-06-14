@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import * as fs from "fs";
 
-import { getAllBlogsForMdx } from "../Services/mdx-api";
-// import { getAllBlogs } from "../Services/api";
+import { getAllBlogsForMdx } from "./Services/mdx-api";
 
 const Sitemap = () => {
   //   useEffect(() => {
