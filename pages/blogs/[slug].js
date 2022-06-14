@@ -49,13 +49,22 @@ export default ShowPost;
 
 export async function getStaticPaths() {
   const blogs = getAllBlogsForMdx();
-  const paths = blogs?.map((blog) => ({
-    params: { slug: blog.slug },
-  }));
+  // const paths = blogs?.map((blog) => ({
+  //   params: { slug: blog.slug },
+  // }));
 
   return {
-    paths,
+    paths: blogs.map((blog) => {
+      return {
+        params: {
+          slug: `${blog.slug}`,
+        },
+      };
+    }),
     fallback: false,
+
+    // paths,
+    // fallback: false,
   };
 }
 
