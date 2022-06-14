@@ -5,7 +5,7 @@
 @tailwind utilities;
 @layer components {
   .btn {
-    @apply flex items-center gap-1 px-3 py-2 font-semibold text-white transition-colors bg-black rounded-full hover:bg-Red dark:hover:bg-Red dark:hover:text-white dark:text-black1 dark:bg-white;
+    @apply flex items-center gap-1 px-3 py-2 font-semibold text-white transition-colors bg-black hover:bg-Red dark:hover:bg-Red dark:hover:text-white dark:text-black1 dark:bg-white;
   }
 }
 html,

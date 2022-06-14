@@ -16,6 +16,7 @@ module.exports = {
       mobileL: "425px",
       mobileM: "375px",
       mobileS: "320px",
+      navBreakM: "547px",
     },
     fontFamily: {
       display: ["Poppins", "sans-serif"],

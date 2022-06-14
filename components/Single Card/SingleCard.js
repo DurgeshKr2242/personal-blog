@@ -22,29 +22,27 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
   const date1 = new Date(date).getDate();
   const year = new Date(date).getFullYear();
   return (
-    <div className="flex flex-col w-[300px] bg-gray-200/30 dark:bg-gray-900/30 rounded-2xl shadow-md">
-      <div className=" w-[300px]">
+    <div className="flex flex-col w-[320px] bg-gray-200/30 dark:bg-gray-900/30  shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all ">
+      <div className=" w-[320px]">
         <img
-          className="object-cover h-44 w-[300px] rounded-t-2xl"
+          className="object-cover h-44 w-[320px]"
           // src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image}`}
           src={image}
-          width="300"
+          width="320"
           height="300"
           // layout="fill"
           alt="JsBanner"
         />
       </div>
-      <div className="flex flex-col justify-between h-full px-4 py-6">
+      <div className="relative flex flex-col justify-between h-full px-4 py-6">
         <div className="flex flex-col gap-4 text-sm">
           <div className="flex flex-col gap-1">
-            <p className="text-gray-700 dark:text-gray-400">
-              <span className="font-semibold text-black dark:text-white">
-                {title || "Random"}
-              </span>
+            <p className="text-base font-semibold text-black dark:text-white">
+              {title || "Random"}
             </p>
 
             <p className="text-xs text-gray-700 dark:text-gray-400">
-              {name || "Random"} -{" "}
+              {/* {name || "Random"} -{" "} */}
               {`${MONTHMAP[month]} ${date1}, ${year}` || "Random"}
             </p>
           </div>
@@ -53,10 +51,9 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
             {description || "Random"}
           </p>
         </div>
-        <div className="flex justify-end">
+        <div className="absolute bottom-0 right-0 flex justify-end">
           <Link href={`/blogs/${slug || "Random"}`}>
             <a className="text-xs btn">
-              {" "}
               Read Article <AiOutlineRight className="font-bold" />
             </a>
           </Link>
