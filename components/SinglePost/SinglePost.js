@@ -14,7 +14,7 @@ const SinglePost = ({ frontMatter, slug, mdxSource, relatedPost }) => {
   // const [likes, setLikes] = useState(blog?.Likes);
 
   return (
-    <div className="flex flex-col gap-4 ">
+    <main className="flex flex-col gap-4 ">
       {/* <div className="flex gap-3"> */}
       {/* <LikeAndComment likes={blog.Likes} /> */}
       {/* <div> */}
@@ -26,7 +26,7 @@ const SinglePost = ({ frontMatter, slug, mdxSource, relatedPost }) => {
       {relatedPost.length > 0 && <RelatedPosts relatedPost={relatedPost} />}
       {/* </div> */}
       {/* <RightPane /> */}
-    </div>
+    </main>
   );
 };
 

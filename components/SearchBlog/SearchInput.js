@@ -37,7 +37,7 @@ const SearchInput = () => {
   return (
     <div className="relative">
       <DebounceInput
-        className=" border-b-2 outline-none bg-transparent border-black/70 dark:border-white/70 py-2 pr-[70px] pl-2 text-lg placeholder:text-lg placeholder:tracking-widest dark:placeholder:text-gray-300/30 placeholder:text-gray-800/50"
+        className=" border-b-2 outline-none bg-transparent border-black/70 dark:border-white/70 py-2 pr-[70px] pl-2 text-sm placeholder:text-lg placeholder:tracking-widest dark:placeholder:text-gray-300/30 placeholder:text-gray-800/50"
         placeholder="search here..."
         minLength={1}
         debounceTimeout={500}

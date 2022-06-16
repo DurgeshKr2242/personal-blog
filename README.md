@@ -1,19 +1,22 @@
-# 📑 Personal Blog (Underdevelopement 🚧)
+# 📑 OurWeb (Personal Blog) (Underdevelopement 🚧)
+
+Deployed At: [Our Web](https://ourweb.vercel.app/)
 
 ## 🟢 Features Implemented
 
-- Server Side Rendering with static site rendering. 🔃
+- Static site rendering. 🔃
 - Markdown using React Markdown. 📝
 - Code syntax highlighting. 👨‍💻
 - Share blog to social media like Twitter, Facebook, Whatsapp, LinkedIn. 🧑‍🏫
 - Custom SEO component with all the important meta tags. 🥇
 - Debouncing for the searchBlog Component. ⌚
-- Added Sitemap at [http://localhost:3000/sitemap.xml](http://localhost:3000/sitemap.xml) 🛣️
+- Added Sitemap at [https://ourweb.vercel.app/sitemap.xml](https://ourweb.vercel.app/sitemap.xml) 🛣️
+- Content clustering by implementing related post component.
+- Light and Dark mode switch.
 
 ## 🟡 To be implemented
 
 - Structured Data for JSON-LD
-- Content clustering by implementing related post component. (Will be doing only when i have enough blogs up and running on my site)
 - Mailing list 📨
 - Add sense 📺
 - Analytics (Only after deoloying) 📈
@@ -23,9 +26,9 @@
 
 - NextJS
 - Tailwind
-- StrapiCMS
-- ReactMarkdown
-- Prism React Renderer
+- MDX
+- Rehype Plugins
+- Fuse.js
 
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
