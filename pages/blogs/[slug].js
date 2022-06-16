@@ -15,7 +15,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCodeTitles from "rehype-code-titles";
 import "highlight.js/styles/atom-one-dark.css";
 
-const ShowPost = ({ frontMatter, slug, mdxSource, blogs }) => {
+const ShowPost = ({ frontMatter, slug, mdxSource, blogs, relatedPost }) => {
   // const ShowPost = ({ blog }) => {
   // console.log("POSTS ARE : ---> ", blog);
   // console.log(frontMatter);
@@ -36,6 +36,7 @@ const ShowPost = ({ frontMatter, slug, mdxSource, blogs }) => {
       {/* shareImage keywords */}
       <div className="flex flex-col items-center max-w-[1440px] px-0 mobileL:px-5 w-full pt-10 mb-10">
         <SinglePost
+          relatedPost={relatedPost}
           frontMatter={frontMatter}
           slug={slug}
           mdxSource={mdxSource}
@@ -89,12 +90,18 @@ export async function getStaticProps({ params }) {
     },
   });
 
+  const checkBlog = (blog) => {
+    return frontMatter.relatedPosts.includes(blog.slug);
+  };
+  const relatedPost = blogs.filter(checkBlog);
+
   return {
     props: {
       blogs,
       frontMatter,
       slug,
       mdxSource,
+      relatedPost,
     },
   };
 }

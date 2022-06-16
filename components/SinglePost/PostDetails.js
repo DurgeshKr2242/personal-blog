@@ -9,7 +9,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
     pre: (props) => (
       <pre
         // className={`w-full my-[1em] p-[0.5em] text-left overflow-scroll max-w-sm relative`} //For scroll
-        className={`w-full my-[1em]  text-left whitespace-pre-wrap break-all relative`} //For wrap
+        className={`w-full my-[1em]  text-left whitespace-pre-wrap break-all relative text-base`} //For wrap
       >
         {props.children}
       </pre>
@@ -19,7 +19,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-center justify-between object-contain w-full max-w-5xl gap-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 ">
+    <div className="flex flex-col items-center justify-between object-contain w-full max-w-3xl gap-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 ">
       {/* <div className="flex justify-start w-full ">
         <p className="text-sm btn bg-Red hover:underline">#Productivity</p>
       </div> */}
@@ -31,7 +31,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
         // layout="fill"
         // alt={CoverImage.data?.attributes?.alternativeText}
       />
-      <div className="flex flex-col items-start gap-6 px-2 pt-6 mobileL:max-w-5xl tablet:px-8">
+      <div className="flex flex-col items-start gap-6 px-2 pt-6 mobileL:max-w-3xl tablet:px-8">
         <div className="flex flex-col w-full gap-4 ">
           <div className="flex flex-col mb-10">
             <h1 className="text-4xl font-bold text-left max-w-[80%] mb-8">
@@ -52,7 +52,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
             </span>
           </p>
         </div>
-        <div className="flex flex-col object-contain w-full max-w-5xl gap-5 px-2 whitespace-pre-wrap wrap customOverflowCode">
+        <div className="flex flex-col object-contain w-full max-w-3xl gap-5 px-2 text-black whitespace-pre-wrap wrap customOverflowCode dark:text-white">
           <MDXRemote {...mdxSource} components={components} />
         </div>
 

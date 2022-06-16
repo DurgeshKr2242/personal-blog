@@ -24,17 +24,19 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
   return (
     <div className="flex flex-col w-[320px] bg-gray-200/30 dark:bg-gray-900/30  shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all ">
       <div className=" w-[320px]">
-        <img
-          className="object-cover h-44 w-[320px]"
-          // src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image}`}
-          src={image}
-          width="320"
-          height="300"
-          // layout="fill"
-          alt="JsBanner"
-        />
+        {image && (
+          <img
+            className="object-cover h-44 w-[320px]"
+            // src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image}`}
+            src={image}
+            width="320"
+            height="300"
+            // layout="fill"
+            alt="JsBanner"
+          />
+        )}
       </div>
-      <div className="relative flex flex-col justify-between h-full px-4 py-6">
+      <div className="relative flex flex-col justify-between h-full px-3 pt-3 pb-10">
         <div className="flex flex-col gap-4 text-sm">
           <div className="flex flex-col gap-1">
             <p className="text-base font-semibold text-black dark:text-white">
@@ -48,7 +50,7 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
           </div>
 
           <p className="text-sm text-left text-gray-700 dark:text-gray-400">
-            {description || "Random"}
+            {description || ""}
           </p>
         </div>
         <div className="absolute bottom-0 right-0 flex justify-end">
