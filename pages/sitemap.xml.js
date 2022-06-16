@@ -3,18 +3,7 @@ import * as fs from "fs";
 
 import { getAllBlogsForMdx } from "../Services/mdx-api";
 
-const Sitemap = () => {
-  //   useEffect(() => {
-  //     const dynamicPaths = [];
-  //     const foo = async () => {
-  //       const allBlogs = await getAllBlogs();
-  //       console.log(allBlogs);
-  //     };
-  //     foo();
-  //   }, []);
-
-  return null;
-};
+const Sitemap = () => {};
 
 export const getServerSideProps = async ({ res }) => {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -22,15 +11,11 @@ export const getServerSideProps = async ({ res }) => {
   const staticPaths = fs
     .readdirSync(
       process.env.NEXT_PUBLIC_ENV_TYPE == "development" ? "pages" : "./"
-      // {
-      //   development: "pages",
-      //   production: "./",
-      // }[process.env.NODE_ENV]
     )
     .filter((staticPage) => {
       return ![
-        "api",
-        "blogs",
+        // "api",
+        // "blogs",
         "_app.js",
         "_document.js",
         "404.js",
@@ -53,6 +38,7 @@ export const getServerSideProps = async ({ res }) => {
 
   const allPaths = [...staticPaths, ...dynamicPaths];
 
+  console.log(allPaths);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
   xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" 

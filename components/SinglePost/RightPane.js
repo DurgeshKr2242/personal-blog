@@ -1,5 +1,6 @@
 import React from "react";
 import SingleRelatedPost from "./SingleRelatedPost";
+
 const RightPane = () => {
   return (
     <div className="flex tablet:flex-col flex-row gap-8 max-w-[200px] ">

@@ -8,10 +8,9 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
   const components = {
     pre: (props) => (
       <pre
-        // className={`w-full my-[1em] p-[0em] text-left overflow-scroll max-w-sm`} //For scroll
-        className={`w-full my-[1em] p-[0.5em] text-left whitespace-pre-wrap break-all relative`} //For wrap
+        // className={`w-full my-[1em] p-[0.5em] text-left overflow-scroll max-w-sm relative`} //For scroll
+        className={`w-full my-[1em]  text-left whitespace-pre-wrap break-all relative`} //For wrap
       >
-        <div className="absolute top-0 right-0 w-3 h-3 bg-red-500"></div>
         {props.children}
       </pre>
     ),
@@ -20,7 +19,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-center justify-between object-contain w-full max-w-3xl gap-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 rounded-2xl">
+    <div className="flex flex-col items-center justify-between object-contain w-full max-w-5xl gap-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 ">
       {/* <div className="flex justify-start w-full ">
         <p className="text-sm btn bg-Red hover:underline">#Productivity</p>
       </div> */}
@@ -32,10 +31,10 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
         // layout="fill"
         // alt={CoverImage.data?.attributes?.alternativeText}
       />
-      <div className="flex flex-col items-start gap-6 px-0 pt-6 mobileL:max-w-4xl tablet:px-8">
+      <div className="flex flex-col items-start gap-6 px-2 pt-6 mobileL:max-w-5xl tablet:px-8">
         <div className="flex flex-col w-full gap-4 ">
           <div className="flex flex-col mb-10">
-            <h1 className="text-4xl font-bold text-left max-w-[80%] my-8">
+            <h1 className="text-4xl font-bold text-left max-w-[80%] mb-8">
               {frontMatter.title}
             </h1>
             <div className="w-40 h-2 bg-Red"></div>
@@ -53,7 +52,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
             </span>
           </p>
         </div>
-        <div className="flex flex-col object-contain w-full max-w-4xl gap-6 px-2 whitespace-pre-wrap wrap customOverflowCode">
+        <div className="flex flex-col object-contain w-full max-w-5xl gap-5 px-2 whitespace-pre-wrap wrap customOverflowCode">
           <MDXRemote {...mdxSource} components={components} />
         </div>
 
