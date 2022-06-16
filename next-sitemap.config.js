@@ -3,5 +3,6 @@ const siteUrl = "https://ourweb.vercel.app";
 module.exports = {
   siteUrl,
   generateRobotsTxt: true,
-  priority: 1,
+  priority: 1.0,
+  changefreq: "monthly",
 };
