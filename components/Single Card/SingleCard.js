@@ -22,20 +22,20 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
   const date1 = new Date(date).getDate();
   const year = new Date(date).getFullYear();
   return (
-    <div className="flex flex-col w-[320px] bg-gray-200/30 dark:bg-gray-900/30  shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all ">
-      <div className=" w-[320px]">
-        {image && (
-          <img
-            className="object-cover h-44 w-[320px]"
+    <div className="flex flex-col mobileL:w-[420] w-[320px] bg-gray-200/30 dark:bg-gray-900/30  shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all ">
+      {image && (
+        <div className="h-32 mobileL:h-32 mobileL:w-[420] w-[320px]">
+          <Image
+            className="object-fill h-32 mobileL:h-32 mobileL:w-[420] w-[320px]"
             // src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image}`}
             src={image}
-            width="320"
-            height="300"
+            width="420"
+            height="160"
             // layout="fill"
             alt="JsBanner"
           />
-        )}
-      </div>
+        </div>
+      )}
       <div className="relative flex flex-col justify-between h-full px-3 pt-3 pb-10">
         <div className="flex flex-col gap-4 text-sm">
           <div className="flex flex-col gap-1">

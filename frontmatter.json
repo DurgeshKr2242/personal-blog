@@ -1,0 +1,164 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "next",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "posts",
+      "path": "[[workspace]]/posts"
+    }
+  ],
+  "frontMatter.content.snippets": {
+    "toc": {
+      "description": "table of content",
+      "body": [
+        "toc:",
+        "  - listitem: Why do we use props in React",
+        "  - listitem: How do we pass props",
+        "    sublist:",
+        "      - listitem: Passing props from parent component to child component",
+        "      - listitem: Passing props from child component to parent component"
+      ],
+      "fields": []
+    }
+  },
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "thumbnailUrl",
+          "name": "thumbnailUrl",
+          "type": "string"
+        },
+        {
+          "title": "author",
+          "name": "author",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "createdAt",
+          "name": "createdAt",
+          "type": "datetime"
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "boolean"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "relatedPosts",
+          "name": "relatedPosts",
+          "type": "fields",
+          "fields": []
+        },
+        {
+          "title": "toc",
+          "name": "toc",
+          "type": "block",
+          "fields": [
+            {
+              "title": "0",
+              "name": "0",
+              "type": "fields",
+              "fields": [
+                {
+                  "title": "listitem",
+                  "name": "listitem",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "title": "1",
+              "name": "1",
+              "type": "fields",
+              "fields": [
+                {
+                  "title": "listitem",
+                  "name": "listitem",
+                  "type": "string"
+                },
+                {
+                  "title": "sublist",
+                  "name": "sublist",
+                  "type": "block",
+                  "fields": [
+                    {
+                      "title": "0",
+                      "name": "0",
+                      "type": "fields",
+                      "fields": [
+                        {
+                          "title": "listitem",
+                          "name": "listitem",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "title": "1",
+                      "name": "1",
+                      "type": "fields",
+                      "fields": [
+                        {
+                          "title": "listitem",
+                          "name": "listitem",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "keywords",
+          "name": "keywords",
+          "type": "choice",
+          "choices": [
+            "firebase",
+            "firebase storage",
+            "react",
+            "file uploads"
+          ]
+        }
+      ]
+    }
+  ]
+}

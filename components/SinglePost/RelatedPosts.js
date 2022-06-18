@@ -4,8 +4,8 @@ import SinglePost from "./SinglePost";
 
 const RelatedPosts = ({ relatedPost }) => {
   return (
-    <section className="w-full max-w-3xl px-10 py-6 mt-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 ">
-      <header className="mb-4 text-2xl font-bold">
+    <section className="px-0 pt-6 pb-8 mt-6 shadow-md mobileL:max-w-3xl tablet:px-8 bg-gray-200/30 dark:bg-gray-900/30 ">
+      <header className="px-2 mb-4 text-2xl font-bold">
         Check These Posts as well
       </header>
       {/* <div className="flex-col items-start w-full">
@@ -17,7 +17,7 @@ const RelatedPosts = ({ relatedPost }) => {
         <button className="py-1 rounded-md btn">Post</button>
       </div> */}
 
-      <div className="flex flex-col gap-3 mt-5">
+      <div className="flex flex-wrap justify-center w-full gap-3 mt-5 tablet:justify-start">
         {relatedPost?.map((post, i) => {
           return (
             <SingleCard

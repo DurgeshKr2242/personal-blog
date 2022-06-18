@@ -25,7 +25,7 @@ const SharePostComponent = ({ Title, Description, url }) => {
           via="OurWeb"
           hashtags={["#ourweb"]}
         >
-          <BsTwitter />
+          <BsTwitter className="hover:text-blue-400" />
         </TwitterShareButton>
 
         <LinkedinShareButton
@@ -34,15 +34,15 @@ const SharePostComponent = ({ Title, Description, url }) => {
           source="OurWeb"
           url={url}
         >
-          <BsLinkedin />
+          <BsLinkedin className="hover:bg-white hover:text-blue-400" />
         </LinkedinShareButton>
 
         <WhatsappShareButton url={url} title={Title} separator=":: ">
-          <BsWhatsapp />
+          <BsWhatsapp className=" hover:text-green-400" />
         </WhatsappShareButton>
 
         <FacebookShareButton url={url} quote={Title} hashtag={"#ourweb"}>
-          <BsFacebook />
+          <BsFacebook className="hover:text-blue-400 hover:bg-white hover:rounded-full" />
         </FacebookShareButton>
       </div>
     </div>

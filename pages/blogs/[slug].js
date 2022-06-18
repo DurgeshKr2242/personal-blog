@@ -19,6 +19,7 @@ const ShowPost = ({ frontMatter, slug, mdxSource, blogs, relatedPost }) => {
   // const ShowPost = ({ blog }) => {
   // console.log("POSTS ARE : ---> ", blog);
   // console.log(frontMatter);
+  // console.log(frontMatter.keywords);
   useEffect(() => {
     localStorage.setItem("AllBlogsForOurWeb", JSON.stringify(blogs));
   }, []);
@@ -31,10 +32,12 @@ const ShowPost = ({ frontMatter, slug, mdxSource, blogs, relatedPost }) => {
         shareImage={frontMatter.thumbnailUrl}
         author={frontMatter.author}
         createdAt={frontMatter.createdAt}
-        // keywords={frontMatter.tags}
+        keywords={frontMatter.keywords}
+        tag={frontMatter.tags}
+        date={frontMatter.date}
       />
       {/* shareImage keywords */}
-      <div className="flex flex-col items-center max-w-[1440px] px-0 mobileL:px-5 w-full pt-10 mb-10">
+      <div className="flex flex-col items-center max-w-[1440px] px-0 tabletM:px-5 w-full pt-10 mb-10">
         <SinglePost
           relatedPost={relatedPost}
           frontMatter={frontMatter}

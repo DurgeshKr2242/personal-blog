@@ -4,23 +4,47 @@ import { useRouter } from "next/router";
 import SharePostComponent from "./SharePostComponent";
 import { MDXRemote } from "next-mdx-remote";
 import Link from "next/link";
-
+import { AiOutlineLink } from "react-icons/ai";
+import Image from "next/image";
 const PostDetails = ({ frontMatter, slug, mdxSource }) => {
   const components = {
     pre: (props) => (
       <pre
         // className={`w-full my-[1em] p-[0.5em] text-left overflow-scroll max-w-sm relative`} //For scroll
-        className={`w-full my-[1em]  text-left whitespace-pre-wrap break-all relative text-base`} //For wrap
+        className={`w-full my-[1em]  text-left whitespace-pre-wrap break-all relative text-base font-normal not-italic`} //For wrap
       >
         {props.children}
       </pre>
     ),
+
+    h2: (props) => (
+      <div className="flex items-center gap-2">
+        <a
+          className="text-black no-underline dark:text-white decoration hover:text-Red/70"
+          href={`#${props.id}`}
+        >
+          <AiOutlineLink className="text-2xl" />
+        </a>
+        <h2 id={props.id}>{props.children.props.children}</h2>
+      </div>
+    ),
+    h3: (props) => (
+      <div className="flex items-center gap-2">
+        <a
+          className="text-black no-underline dark:text-white decoration hover:text-Red/70"
+          href={`#${props.id}`}
+        >
+          <AiOutlineLink className="text-xl" />
+        </a>
+        <h3 id={props.id}>{props.children.props.children}</h3>
+      </div>
+    ),
+    h4: (props) => <h4>{props.children.props.children}</h4>,
+    // code: (props) => <code className="bg-[#282C34]">{props.children}</code>,
   };
 
   const router = useRouter();
   console.log(frontMatter.toc);
-
-  // TODO : In header tag: Title, date, Toc, description,
 
   return (
     <article className="flex flex-col items-center justify-between object-contain w-full max-w-3xl gap-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 ">
@@ -28,14 +52,30 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
         <p className="text-sm btn bg-Red hover:underline">#Productivity</p>
       </div> */}
 
-      <header>
-        <img
+      <header className="w-full max-w-3xl">
+        {/* <img
           className="object-cover w-full shadow-lg h-80 "
           src={frontMatter.thumbnailUrl}
           // src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${CoverImage.data?.attributes?.formats.large?.url}`}
           // layout="fill"
           // alt={CoverImage.data?.attributes?.alternativeText}
-        />
+        /> */}
+        <div className="h-max  object-fill mobileL:object-fill  mobileL:max-h-[432px] mobileL:h-max  relative">
+          <Image
+            className=""
+            // className="max-w-xs w-max mobileL:max-w-md tablet:max-w-lg rounded-3xl"
+            src={frontMatter.thumbnailUrl}
+            // layout="fill"
+            width="1200"
+            height="583"
+            // width="100%"
+            // height="100%"
+            // layout="fill"
+            objectFit="cover"
+            // src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${postData?.attributes?.CoverImage?.data?.attributes?.formats?.large?.url}`}
+            alt={frontMatter.title}
+          />
+        </div>
         <div className="flex flex-col items-start gap-6 px-2 pt-6 mobileL:max-w-3xl tablet:px-8">
           <div className="flex flex-col w-full gap-4 ">
             <div className="flex flex-col mb-10">
@@ -74,7 +114,9 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
                             .split(" ")
                             .join("-")}`}
                         >
-                          <a>{item.listitem}</a>
+                          <a className="text-black dark:text-white decoration decoration-red-400 decoration-solid hover:decoration-dashed underline-offset-2">
+                            {item.listitem}
+                          </a>
                         </Link>
                         {item.sublist && (
                           <>
@@ -94,7 +136,10 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
                                         .split(" ")
                                         .join("-")}`}
                                     >
-                                      <a> {subitem.listitem}</a>
+                                      <a className="text-black dark:text-white decoration decoration-red-400 decoration-solid hover:decoration-dashed underline-offset-2">
+                                        {" "}
+                                        {subitem.listitem}
+                                      </a>
                                     </Link>
                                   </li>
                                 );

@@ -1,5 +1,8 @@
 {
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
-  "versionlens.suggestions.showOnStartup": true
+  "versionlens.suggestions.showOnStartup": true,
+  "frontMatter.content.autoUpdateDate": false,
+  "frontMatter.content.fmHighlight": true,
+  "[markdown]": {}
 }
