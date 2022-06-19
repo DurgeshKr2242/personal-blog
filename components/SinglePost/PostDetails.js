@@ -8,19 +8,32 @@ import { AiOutlineLink } from "react-icons/ai";
 import Image from "next/image";
 const PostDetails = ({ frontMatter, slug, mdxSource }) => {
   const components = {
-    pre: (props) => (
-      <pre
-        // className={`w-full my-[1em] p-[0.5em] text-left overflow-scroll max-w-sm relative`} //For scroll
-        className={`w-full my-[1em]  text-left whitespace-pre-wrap break-all relative text-base font-normal not-italic`} //For wrap
-      >
-        {props.children}
-      </pre>
-    ),
+    code: (props) =>
+      props.className ? (
+        <code className={props.className}>{props.children}</code>
+      ) : (
+        <code className="rounded-sm bg-[#282C34] px-2 py-0.5 text-white ">
+          {props.children}
+        </code>
+      ),
+    pre: (props) => {
+      {
+        // console.log(props);
+      }
+      return (
+        <pre
+          // className={`w-full my-[1em] p-[0.5em] text-left overflow-scroll max-w-sm relative`} //For scroll
+          className={`relative my-[1em]  w-full whitespace-pre-wrap break-all text-left text-base font-normal not-italic`} //For wrap
+        >
+          {props.children}
+        </pre>
+      );
+    },
 
     h2: (props) => (
       <div className="flex items-center gap-2">
         <a
-          className="text-black no-underline dark:text-white decoration hover:text-Red/70"
+          className="text-black no-underline decoration hover:text-Red/70 dark:text-white"
           href={`#${props.id}`}
         >
           <AiOutlineLink className="text-2xl" />
@@ -31,7 +44,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
     h3: (props) => (
       <div className="flex items-center gap-2">
         <a
-          className="text-black no-underline dark:text-white decoration hover:text-Red/70"
+          className="text-black no-underline decoration hover:text-Red/70 dark:text-white"
           href={`#${props.id}`}
         >
           <AiOutlineLink className="text-xl" />
@@ -44,7 +57,6 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
   };
 
   const router = useRouter();
-  console.log(frontMatter.toc);
 
   return (
     <article className="flex flex-col items-center justify-between object-contain w-full max-w-3xl gap-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 ">
@@ -60,7 +72,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
           // layout="fill"
           // alt={CoverImage.data?.attributes?.alternativeText}
         /> */}
-        <div className="h-max  object-fill mobileL:object-fill  mobileL:max-h-[432px] mobileL:h-max  relative">
+        {/* <div className="h-max  object-fill mobileL:object-fill  mobileL:max-h-[432px] mobileL:h-max  relative">
           <Image
             className=""
             // className="max-w-xs w-max mobileL:max-w-md tablet:max-w-lg rounded-3xl"
@@ -77,11 +89,11 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
             // src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${postData?.attributes?.CoverImage?.data?.attributes?.formats?.large?.url}`}
             alt={frontMatter.title}
           />
-        </div>
-        <div className="flex flex-col items-start gap-6 px-2 pt-6 mobileL:max-w-3xl tablet:px-8">
+        </div> */}
+        <div className="flex flex-col items-start gap-6 px-2 pt-6 tablet:px-8 mobileL:max-w-3xl">
           <div className="flex flex-col w-full gap-4 ">
             <div className="flex flex-col mb-10">
-              <h1 className="text-4xl font-bold text-left max-w-[80%] mb-8 laptop:mt-6">
+              <h1 className="mb-8 max-w-[80%] text-left text-4xl font-bold laptop:mt-6">
                 {frontMatter.title}
               </h1>
               <div className="w-40 h-2 bg-Red"></div>
@@ -92,7 +104,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
           </div>
           <div className="flex flex-col gap-2">
             <h2 className="text-xl">Long Story Short </h2>
-            <div className="w-14 h-1.5 bg-Red/80"></div>
+            <div className="h-1.5 w-14 bg-Red/80"></div>
             <p className="text-left text-black dark:text-white">
               {/* <span className="font-semibold text-black dark:text-white"> */}
               {frontMatter.description}
@@ -103,7 +115,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
           {frontMatter.toc && (
             <div className="flex flex-col gap-2">
               <h2 className="text-xl">Table Of Content </h2>
-              <div className="w-14 h-1.5 bg-Red/80"></div>
+              <div className="h-1.5 w-14 bg-Red/80"></div>
               <p className="text-left text-black dark:text-white">
                 <ol>
                   {frontMatter.toc.map((item, i) => {
@@ -116,7 +128,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
                             .split(" ")
                             .join("-")}`}
                         >
-                          <a className="text-black dark:text-white decoration decoration-red-400 decoration-solid hover:decoration-dashed underline-offset-2">
+                          <a className="text-black decoration decoration-red-400 decoration-solid underline-offset-2 hover:decoration-dashed dark:text-white">
                             {item.listitem}
                           </a>
                         </Link>
@@ -138,7 +150,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
                                         .split(" ")
                                         .join("-")}`}
                                     >
-                                      <a className="text-black dark:text-white decoration decoration-red-400 decoration-solid hover:decoration-dashed underline-offset-2">
+                                      <a className="text-black decoration decoration-red-400 decoration-solid underline-offset-2 hover:decoration-dashed dark:text-white">
                                         {" "}
                                         {subitem.listitem}
                                       </a>
@@ -158,7 +170,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
           )}
         </div>
       </header>
-      <div className="flex flex-col items-start gap-6 px-0 pt-6 mobileL:max-w-3xl tablet:px-8">
+      <div className="flex flex-col items-start gap-6 px-0 pt-6 tablet:px-8 mobileL:max-w-3xl">
         <SharePostComponent
           Title={frontMatter.title}
           Description={frontMatter.description}
@@ -168,14 +180,14 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
           <MDXRemote {...mdxSource} components={components} />
         </div>
 
-        <div className="flex flex-col items-center w-full gap-8 px-8 py-10 my-6 text-center tablet:px-24 bg-Red">
+        <div className="flex flex-col items-center w-full gap-8 px-8 py-10 my-6 text-center bg-Red tablet:px-24">
           <p className="text-xl font-bold">
             Get the latest articles from OurWeb in your inbox.
           </p>
           <div className="flex flex-col w-full mobileL:flex-row">
             <input
               type="text"
-              className="w-full px-4 py-3 text-sm font-semibold dark:text-black placeholder:text-sm "
+              className="w-full px-4 py-3 text-sm font-semibold placeholder:text-sm dark:text-black "
               placeholder="Type your email here ..."
             />
             <button className="px-2 py-3 text-sm font-semibold text-white uppercase bg-black whites pace-nowrap">
