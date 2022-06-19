@@ -34,8 +34,8 @@ const RecentPosts = ({ postData }) => {
           // className="max-w-xs w-max mobileL:max-w-md tablet:max-w-lg rounded-3xl"
           src={postData.frontMatter.thumbnailUrl}
           // layout="fill"
-          width="1400"
-          height="583"
+          width="1300"
+          height="432"
           // width="100%"
           // height="100%"
           // layout="fill"

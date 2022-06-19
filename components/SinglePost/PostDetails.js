@@ -66,8 +66,10 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
             // className="max-w-xs w-max mobileL:max-w-md tablet:max-w-lg rounded-3xl"
             src={frontMatter.thumbnailUrl}
             // layout="fill"
-            width="1200"
-            height="583"
+            // width="1400"
+            // height="583"
+            width="960"
+            height="383"
             // width="100%"
             // height="100%"
             // layout="fill"
@@ -79,7 +81,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
         <div className="flex flex-col items-start gap-6 px-2 pt-6 mobileL:max-w-3xl tablet:px-8">
           <div className="flex flex-col w-full gap-4 ">
             <div className="flex flex-col mb-10">
-              <h1 className="text-4xl font-bold text-left max-w-[80%] mb-8">
+              <h1 className="text-4xl font-bold text-left max-w-[80%] mb-8 laptop:mt-6">
                 {frontMatter.title}
               </h1>
               <div className="w-40 h-2 bg-Red"></div>
