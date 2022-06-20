@@ -5,19 +5,22 @@ Deployed At: [Our Web](https://ourweb.vercel.app/)
 ## 🟢 Features Implemented
 
 - Static site rendering. 🔃
+- Serving optimized images via cloudnary CDN.
+- Mailing list 📨
+- Share blog to social media like Twitter, Facebook, Whatsapp, LinkedIn. 🧑‍🏫
+- Added Sitemap at [https://ourweb.vercel.app/sitemap.xml](https://ourweb.vercel.app/sitemap.xml) 🛣️
+- Added robots.txt at [https://ourweb.vercel.app/robots.txt](https://ourweb.vercel.app/robots.txt)
+
 - Markdown using React Markdown. 📝
 - Code syntax highlighting. 👨‍💻
-- Share blog to social media like Twitter, Facebook, Whatsapp, LinkedIn. 🧑‍🏫
 - Custom SEO component with all the important meta tags. 🥇
 - Debouncing for the searchBlog Component. ⌚
-- Added Sitemap at [https://ourweb.vercel.app/sitemap.xml](https://ourweb.vercel.app/sitemap.xml) 🛣️
 - Content clustering by implementing related post component.
 - Light and Dark mode switch.
 
 ## 🟡 To be implemented
 
 - Structured Data for JSON-LD
-- Mailing list 📨
 - Add sense 📺
 - Analytics (Only after deoloying) 📈
 - Scroll to top 🔝
@@ -27,8 +30,10 @@ Deployed At: [Our Web](https://ourweb.vercel.app/)
 - NextJS
 - Tailwind
 - MDX
-- Rehype Plugins
+- Cloudnary
+- Mailchimp
 - Fuse.js
+- Rehype Plugins
 
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

@@ -25,7 +25,7 @@ const RecentPosts = ({ postData }) => {
   const router = useRouter();
 
   return (
-    <div className="group relative flex h-max max-h-[432px] w-full flex-col items-center justify-center bg-gray-200/30 shadow-sm transition-all    dark:bg-gray-900/30 tablet:flex-row">
+    <div className="group relative flex h-max max-h-[432px] w-full flex-col items-center justify-center  bg-gray-900/10  shadow-sm transition-all  dark:bg-gray-200/10 tablet:flex-row  ">
       {/* <div className="flex tablet:flex-row flex-col items-center justify-center w-full tablet:gap-40 gap-10 min-h-[342px] px-10"> */}
       {/* <div className=" flex-1/2  max-h-[432px] relative">
         <Image

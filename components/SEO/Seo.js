@@ -44,8 +44,8 @@ const Seo = (props) => {
         content={description}
         key="og:description"
       />
-      <meta property="og:image" content={shareImage} key="og:image" />
-      <meta property="og:image:alt" content={title} />
+      {/* <meta property="og:image" content={shareImage} key="og:image" /> */}
+      {/* <meta property="og:image:alt" content={title} /> */}
 
       {/* Article */}
       <meta property="article:published_time" content={new Date(date)} />
@@ -59,9 +59,9 @@ const Seo = (props) => {
       })}
 
       {/* TWITTER */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content={shareImage} />
-      <meta name="twitter:image:alt" content={title} />
+      {/* <meta name="twitter:card" content="summary_large_image" /> */}
+      {/* <meta name="twitter:image" content={shareImage} /> */}
+      {/* <meta name="twitter:image:alt" content={title} /> */}
 
       {/* <link rel="canonical" href="https://www.nytimes.com/interactive/2019/12/02/nyregion/nyc-subway-map.html">
 // <meta name="description" content="The city has changed drastically over the past 40 years, yet the M.T.A. map designed in 1979 has largely endured.">

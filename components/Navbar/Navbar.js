@@ -7,8 +7,8 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const router = useRouter();
   return (
-    <div className="flex justify-center w-full bg-gradient-to-r px-5 from-white1 to-white2 dark:text-white dark:from-[#000000] dark:to-[#130F40]">
-      <div className="flex navBreakM:flex-row flex-col max-w-[1440px] items-center justify-between w-full py-1">
+    <div className="flex w-full justify-center bg-gradient-to-r from-white1 to-white2 px-5 dark:from-[#000000] dark:to-[#130F40] dark:text-white">
+      <div className="flex w-full max-w-[1440px] flex-col items-center justify-between gap-2 py-1 navBreakM:flex-row">
         <DarkModeSwitch></DarkModeSwitch>
         <h1
           onClick={() => router.replace("/")}

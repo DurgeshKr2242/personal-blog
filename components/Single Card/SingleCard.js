@@ -23,7 +23,7 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
   const year = new Date(date).getFullYear();
   return (
     <Link href={`/blogs/${slug || "Random"}`} passHref>
-      <div className="group flex w-[320px] cursor-pointer flex-col bg-gray-200/30  shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-gray-900/30 mobileL:w-[420]">
+      <div className="group flex w-[320px] cursor-pointer flex-col bg-gray-900/10  shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-gray-200/10 mobileL:w-[420]">
         {/* {image && (
         <div className="h-32 mobileL:h-32 mobileL:w-[420] w-[320px]">
           <Image

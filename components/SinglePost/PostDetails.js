@@ -6,6 +6,7 @@ import { MDXRemote } from "next-mdx-remote";
 import Link from "next/link";
 import { AiOutlineLink } from "react-icons/ai";
 import Image from "next/image";
+import SubscribeMailChimp from "./SubscribeMailChimp";
 const PostDetails = ({ frontMatter, slug, mdxSource }) => {
   const components = {
     code: (props) =>
@@ -32,24 +33,24 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
 
     h2: (props) => (
       <div className="flex items-center gap-2">
+        <h2 id={props.id}>{props.children.props.children}</h2>
         <a
           className="text-black no-underline decoration hover:text-Red/70 dark:text-white"
           href={`#${props.id}`}
         >
           <AiOutlineLink className="text-2xl" />
         </a>
-        <h2 id={props.id}>{props.children.props.children}</h2>
       </div>
     ),
     h3: (props) => (
       <div className="flex items-center gap-2">
+        <h3 id={props.id}>{props.children.props.children}</h3>
         <a
           className="text-black no-underline decoration hover:text-Red/70 dark:text-white"
           href={`#${props.id}`}
         >
           <AiOutlineLink className="text-xl" />
         </a>
-        <h3 id={props.id}>{props.children.props.children}</h3>
       </div>
     ),
     h4: (props) => <h4>{props.children.props.children}</h4>,
@@ -116,7 +117,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
             <div className="flex flex-col gap-2">
               <h2 className="text-xl">Table Of Content </h2>
               <div className="h-1.5 w-14 bg-Red/80"></div>
-              <p className="text-left text-black dark:text-white">
+              <div className="text-left text-black dark:text-white">
                 <ol>
                   {frontMatter.toc.map((item, i) => {
                     return (
@@ -165,7 +166,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
                     );
                   })}
                 </ol>
-              </p>
+              </div>
             </div>
           )}
         </div>
@@ -180,25 +181,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
           <MDXRemote {...mdxSource} components={components} />
         </div>
 
-        <div className="flex flex-col items-center w-full gap-8 px-8 py-10 my-6 text-center bg-Red tablet:px-24">
-          <p className="text-xl font-bold">
-            Get the latest articles from OurWeb in your inbox.
-          </p>
-          <div className="flex flex-col w-full mobileL:flex-row">
-            <input
-              type="text"
-              className="w-full px-4 py-3 text-sm font-semibold placeholder:text-sm dark:text-black "
-              placeholder="Type your email here ..."
-            />
-            <button className="px-2 py-3 text-sm font-semibold text-white uppercase bg-black whites pace-nowrap">
-              Send me Knowledge !
-            </button>
-          </div>
-          <p className="text-sm text-white/70">
-            No spam. Just new tutorials, course announcements, and updates from
-            OurWeb.
-          </p>
-        </div>
+        <SubscribeMailChimp />
 
         <div className="flex flex-col w-full gap-4 my-4">
           <SharePostComponent
