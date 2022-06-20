@@ -4,7 +4,7 @@ Deployed At: [Our Web](https://ourweb.vercel.app/)
 
 ## 🟢 Features Implemented
 
-- Static site rendering. 🔃
+- Static site rendering using NextJS. 🔃
 - Serving optimized images via cloudnary CDN.
 - Mailing list 📨
 - Share blog to social media like Twitter, Facebook, Whatsapp, LinkedIn. 🧑‍🏫
