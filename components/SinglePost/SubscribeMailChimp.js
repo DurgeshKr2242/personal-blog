@@ -41,36 +41,34 @@ const CustomForm = ({ status, message, onValidated }) => {
     <>
       {localStorageStatus === "subscribed" ? (
         <div className="flex flex-col items-center w-full gap-8 px-6 py-10 my-6 text-center bg-Red tablet:px-20">
-          <p className="text-xl font-bold">
-            <div className="flex flex-col gap-3">
-              <p>Thankyou for subscribing!</p>
+          <div className="flex flex-col gap-3 text-xl font-bold">
+            <p className="text-xl font-bold text-white">
+              Thankyou for subscribing!
+            </p>
 
+            <p className="text-sm text-white/90">
+              You will be recieving knowledge straight to your inbox.
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div className="flex flex-col items-center w-full gap-8 px-6 py-10 my-6 text-center bg-Red tablet:px-20">
+          {status === "success" ? (
+            <div className="flex flex-col gap-3 text-xl font-bold">
+              {/* <p>Thankyou for Subscribing!</p> */}
+              <p className="text-xl font-bold text-white">{message}</p>
               <p className="text-sm text-white/90">
                 You will be recieving knowledge straight to your inbox.
               </p>
             </div>
-          </p>
-        </div>
-      ) : (
-        <div className="flex flex-col items-center w-full gap-8 px-6 py-10 my-6 text-center bg-Red tablet:px-20">
-          <p className="text-xl font-bold">
-            {status === "success" ? (
-              <div className="flex flex-col gap-3">
-                {/* <p>Thankyou for Subscribing!</p> */}
-                <p>{message}</p>
-                <p className="text-sm text-white/90">
-                  You will be recieving knowledge straight to your inbox.
-                </p>
-              </div>
-            ) : status == "error" ? (
-              <div>
-                <p>HEY! Something weny wrong</p>
-                <p>{message}</p>
-              </div>
-            ) : (
-              "Get the latest articles from OurWeb in your inbox."
-            )}
-          </p>
+          ) : status == "error" ? (
+            <div>
+              <p>HEY! Something weny wrong</p>
+              <p>{message}</p>
+            </div>
+          ) : (
+            "Get the latest articles from OurWeb in your inbox."
+          )}
 
           {status != "success" && (
             <>

@@ -51,6 +51,12 @@ h3 {
   line-height: 31.3px;
   font-weight: bold;
 }
+h4 {
+  font-size: 21.5px;
+  /* line-height: 31.3px; */
+  font-weight: bold;
+}
+
 blockquote {
   border-left: 3px solid;
   padding-left: 15px;

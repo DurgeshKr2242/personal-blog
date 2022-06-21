@@ -7,6 +7,7 @@ import Link from "next/link";
 import { AiOutlineLink } from "react-icons/ai";
 import Image from "next/image";
 import SubscribeMailChimp from "./SubscribeMailChimp";
+
 const PostDetails = ({ frontMatter, slug, mdxSource }) => {
   const components = {
     code: (props) =>
@@ -31,8 +32,12 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
       );
     },
 
+    // ol: (props) => {
+    //   console.log(props);
+    //   return <p>what</p>;
+    // },
     h2: (props) => (
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 mt-8">
         <h2 id={props.id}>{props.children.props.children}</h2>
         <a
           className="text-black no-underline decoration hover:text-Red/70 dark:text-white"
