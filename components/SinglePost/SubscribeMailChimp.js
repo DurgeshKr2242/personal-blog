@@ -63,11 +63,16 @@ const CustomForm = ({ status, message, onValidated }) => {
             </div>
           ) : status == "error" ? (
             <div>
-              <p>HEY! Something weny wrong</p>
-              <p>{message}</p>
+              <p className="text-xl font-bold text-white">
+                HEY! Something weny wrong
+              </p>
+              <p className="text-sm text-white/90">{message}</p>
             </div>
           ) : (
-            "Get the latest articles from OurWeb in your inbox."
+            <p className="text-xl font-bold text-white">
+              {" "}
+              Get the latest articles from OurWeb in your inbox.
+            </p>
           )}
 
           {status != "success" && (

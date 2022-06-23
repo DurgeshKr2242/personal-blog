@@ -1,17 +1,8 @@
 import React from "react";
 import Head from "next/head";
 const Seo = (props) => {
-  const {
-    title,
-    description,
-    url,
-    shareImage,
-    keywords,
-    author,
-    createdAt,
-    tag,
-    date,
-  } = props;
+  const { title, description, url, shareImage, keywords, author, tag, date } =
+    props;
 
   return (
     <Head>

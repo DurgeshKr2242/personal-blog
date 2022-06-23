@@ -24,20 +24,20 @@ const ShowPost = ({ frontMatter, slug, mdxSource, blogs, relatedPost }) => {
     localStorage.setItem("AllBlogsForOurWeb", JSON.stringify(blogs));
   }, []);
   return (
-    <div className=" flex flex-col items-center w-full bg-gradient-to-r from-white1 to-white2 dark:text-white dark:from-[#000000] dark:to-[#130F40]">
+    <div className=" flex w-full flex-col items-center bg-gradient-to-r from-white1 to-white2 dark:from-[#000000] dark:to-[#130F40] dark:text-white">
+      {console.log(new Date(frontMatter.date))}
       <Seo
         title={frontMatter.title}
         description={frontMatter.description}
         url={slug}
         shareImage={frontMatter.thumbnailUrl}
         author={frontMatter.author}
-        createdAt={frontMatter.createdAt}
         keywords={frontMatter.keywords}
         tag={frontMatter.tags}
         date={frontMatter.date}
       />
       {/* shareImage keywords */}
-      <div className="flex flex-col items-center max-w-[1440px] px-0 tabletM:px-5 w-full pt-10 mb-10">
+      <div className="mb-10 flex w-full max-w-[1440px] flex-col items-center px-0 pt-10 tabletM:px-5">
         <SinglePost
           relatedPost={relatedPost}
           frontMatter={frontMatter}

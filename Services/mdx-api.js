@@ -44,7 +44,7 @@ export const getRecentBlogsForMdx = () => {
   });
 
   posts.sort((x, y) => {
-    return x.frontMatter.createdAt < y.frontMatter.createdAt ? 1 : -1;
+    return new Date(x.frontMatter.date) < new Date(y.frontMatter.date) ? 1 : -1;
   });
 
   return posts;

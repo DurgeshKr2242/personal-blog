@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
+import Link from "next/link";
 const MONTHMAP = [
   "Jan",
   "Feb",
@@ -18,10 +19,6 @@ const MONTHMAP = [
 ];
 
 const RecentPosts = ({ postData }) => {
-  // console.log("RECENT POST IS THIS", postData);
-  // const month = new Date(postData?.attributes.createdAt).getMonth();
-  // const date1 = new Date(postData?.attributes.createdAt).getDate();
-  // const year = new Date(postData?.attributes.createdAt).getFullYear();
   const router = useRouter();
 
   return (
@@ -56,12 +53,16 @@ const RecentPosts = ({ postData }) => {
           <p className="text-black/70 dark:text-white/70">
             {postData.frontMatter.description}
           </p>
-          <button
-            onClick={() => router.push(`/blogs/${postData.slug}`)}
-            className="flex items-center gap-1 px-2 py-1 text-sm font-semibold transition-colors bg-white text-black1 group-hover:bg-Red group-hover:text-white tablet:py-2 tablet:px-4 tablet:text-base"
-          >
-            Read Article <AiOutlineRight className="font-bold" />
-          </button>
+          <Link href="/blogs/how-to-pass-props-between-components-in-reactjs">
+            <a className="no-underline">
+              <button
+                // onClick={() => router.push(`/blogs/${postData.slug}`)}
+                className="flex items-center gap-1 px-2 py-1 text-sm font-semibold transition-colors bg-white text-black1 group-hover:bg-Red group-hover:text-white tablet:py-2 tablet:px-4 tablet:text-base"
+              >
+                Read Article <AiOutlineRight className="font-bold" />
+              </button>
+            </a>
+          </Link>
         </div>
       </div>
       {/* <button
