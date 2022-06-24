@@ -27,15 +27,15 @@ keywords:
 
 When we write react code, we frequently split it into different components for a variety of reasons, including code re-usability and readability. And in some cases, we need to communicate (transfer data) between different components. Props are one way to transfer data between react components.
 
-In React, we use props to pass data from one component to another, i.e. from a parent component to a child component. Although we cannot pass props from child to parent components, there are some workarounds that will be discussed in the blog.
+In React, we use props to pass data from one component to another, i.e. from a parent to a child component. Although we cannot pass props from child to parent, there are some workarounds that will be discussed in the blog.
 
 Props data is immutable (read-only)
 
 ## 2. How do we pass props
 
-### 2.1 Passing props from parent component to child component
+### 2.1 Passing props from parent to child component
 
-In this example, the parent component `MainList` contains the child component `ListItem`. We will look at how can we pass data as props from parent component to child component:
+In this example, the parent component `MainList` contains the child component `ListItem`. We will look at how can we pass data as props from parent to child component:
 
 #### Starter example code
 
@@ -125,9 +125,9 @@ And the output we get is:
 
 ### 2.2 Passing props from child component to parent component
 
-Data cannot be passed up from a child component to a parent component — at least not directly. But we have a workaround. We can pass functions as props.
+Data cannot be passed up from a child to a parent component — at least not directly. But we have a workaround. We can pass functions as props.
 
-A function in the parent component can be passed to the child component via props. The function in the child component can then be executed to change data in the parent component.
+A function in the parent component can be passed to the child via props. The function in the child component can then be executed to change data in the parent component.
 We can make the change dynamic by passing an argument while the function in the child component is being executed. Lets see how it works.
 
 #### Starter example code.
@@ -158,7 +158,7 @@ const MainList = () => {
 export default MainList;
 ```
 
-Here we have a state **text** which has a initial value of “Initial text”. The parent component `MainList` is sending the **_text_** prop, which has the value of text state to the child component `ListItem`. (We have already seen how to pass props from parent component to child component above in this blog <a href="#21-passing-props-from-parent-component-to-child-component"> above </a>). We also have a function _changeText_ which changes the value of state from “Initial text” to “Changed text”.
+Here we have a state **text** which has a initial value of “Initial text”. The parent `MainList` is sending the **_text_** prop, which has the value of text state to the child component `ListItem`. (We have already seen how to pass props from parent to child component above in this blog <a href="#21-passing-props-from-parent-component-to-child-component"> above </a>). We also have a function _changeText_ which changes the value of state from “Initial text” to “Changed text”.
 
 This is our child component:
 
@@ -211,7 +211,7 @@ In the example above, the `MainList`component is sending the **setText** prop
 
 #### Accepting function as prop in the child component
 
-Now that we sent the setText prop from the parent component, lets accept the prop in the child component and execute it to see the changes.
+Now that we sent the setText prop from the parent, lets accept the prop in the child component and execute it to see the changes.
 
 ```jsx:/components/ListItem.jsx
 import React from "react";
@@ -227,10 +227,10 @@ Now in the child component `ListItem` we have a _onClick_ function on the paragr
 
 ![Screenshot from 2022-06-09 08-16-53.png](http://ourweb.mo.cloudinary.net/assets/passing%20props%20child%20to%20parent%20output1.png)
 
-And there you have it, we just made a change in the parent component from the child component.
+And there you have it, we just made a change in the parent from the child component.
 This explains what occurred here. When we click on the first paragraph tag (since we only passed the setText prop to the first paragraph tag from the parent component to the child component), the _onClick_ fires the _setText_ fucnction that we are accepting as prop. And in the parent component, the _setText_ method contains the _changeText_ function. As a result, the _changeText_ function is called, and the text state's value is changed to "Changed text."
 
-But we are not actually sending any data from the child component to the parent component. We just did some action in the child component which caused some change in the parent component. . The change was not dynamic.
+But we are not actually sending any data from the child component to the parent. We just did some action in the child component which caused some change in the parent component. The change was not dynamic.
 
 We can do that by accepting arguments in the _changeText_ function and passing parameters in the function when we execute the function in the child component.
 
