@@ -20,7 +20,9 @@ export default function Home({ blogs, recentBlogs }) {
       <Seo
         title={"OurWEB"}
         description="Technical blog website covering topics broadly related to web development."
-        url={`${process.env.NEXT_PUBLIC_BASE_URL}`}
+        // url={`${process.env.NEXT_PUBLIC_BASE_URL}`}
+        canonicalUrl={process.env.NEXT_PUBLIC_BASE_URL}
+        ogUrl={process.env.NEXT_PUBLIC_BASE_URL}
         //  shareImage={`${process.env.NEXT_PUBLIC_STRAPI_URL}${blog[0]?.attributes.CoverImage.data?.attributes?.formats.large?.url}`}
         keywords={[
           "OurWeb",

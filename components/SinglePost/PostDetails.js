@@ -192,7 +192,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
           <SharePostComponent
             Title={frontMatter.title}
             Description={frontMatter.description}
-            url={`${process.env.NEXT_PUBLIC_BASE_URL}${slug}`}
+            url={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${slug}`}
           />
         </div>
       </div>

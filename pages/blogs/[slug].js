@@ -29,12 +29,14 @@ const ShowPost = ({ frontMatter, slug, mdxSource, blogs, relatedPost }) => {
       <Seo
         title={frontMatter.title}
         description={frontMatter.description}
-        url={slug}
+        // url={slug}
         shareImage={frontMatter.thumbnailUrl}
         author={frontMatter.author}
         keywords={frontMatter.keywords}
         tag={frontMatter.tags}
         date={frontMatter.date}
+        canonicalUrl={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${slug}`}
+        ogUrl={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${slug}`}
       />
       {/* shareImage keywords */}
       <div className="mb-10 flex w-full max-w-[1440px] flex-col items-center px-0 pt-10 tabletM:px-5">
