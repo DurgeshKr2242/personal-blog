@@ -53,7 +53,7 @@ const RecentPosts = ({ postData }) => {
           <p className="text-black/70 dark:text-white/70">
             {postData.frontMatter.description}
           </p>
-          <Link href="/blogs/how-to-pass-props-between-components-in-reactjs">
+          <Link href={`/blogs/${postData.slug}`}>
             <a className="no-underline">
               <button
                 // onClick={() => router.push(`/blogs/${postData.slug}`)}
