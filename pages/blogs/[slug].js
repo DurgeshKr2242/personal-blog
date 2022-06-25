@@ -25,7 +25,7 @@ const ShowPost = ({ frontMatter, slug, mdxSource, blogs, relatedPost }) => {
   }, []);
   return (
     <div className=" flex w-full flex-col items-center bg-gradient-to-r from-white1 to-white2 dark:from-[#000000] dark:to-[#130F40] dark:text-white">
-      {console.log(new Date(frontMatter.date))}
+      {/* {console.log(new Date(frontMatter.date))} */}
       <Seo
         title={frontMatter.title}
         description={frontMatter.description}

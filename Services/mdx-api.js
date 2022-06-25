@@ -83,7 +83,7 @@ export const getSearchBlogsFormdx = (q) => {
   //   }
   // );
   const blogsss = localStorage.getItem("AllBlogsForOurWeb");
-  console.log("LOCALLL", blogsss);
+  // console.log("LOCALLL", blogsss);
   const searchBlogs = [{ title: "what" }];
 
   const options = {

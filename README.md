@@ -6,7 +6,7 @@
 
 # 1. 📑 OurWeb (Personal Blog) (Underdevelopement 🚧)
 
-Deployed At: [Our Web](https://ourweb.vercel.app/)
+Deployed At: [Our Web](https://www.ourweb.blog)
 
 # 2. Features :
 
@@ -16,8 +16,8 @@ Deployed At: [Our Web](https://ourweb.vercel.app/)
 - Serving optimized images via cloudnary CDN.
 - Keeping Mailing list to send updated via mail to the subscribers 📨
 - Share blog to social media like Twitter, Facebook, Whatsapp, LinkedIn, Reddit. 🧑‍🏫
-- Added Sitemap at [https://ourweb.vercel.app/sitemap.xml](https://ourweb.vercel.app/sitemap.xml) 🛣️
-- Added robots.txt at [https://ourweb.vercel.app/robots.txt](https://ourweb.vercel.app/robots.txt)
+- Added Sitemap at [https://www.ourweb.blog/sitemap.xml](https://www.ourweb.blog/sitemap.xml) 🛣️
+- Added robots.txt at [https://www.ourweb.blog/robots.txt](https://www.ourweb.blog/robots.txt)
 - Custom SEO component with all the important meta tags. 🥇
 - Content clustering by implementing related post component.
 
