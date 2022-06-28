@@ -1,0 +1,171 @@
+---
+title: Add Google Analytics in Next JS in 4 Simple Steps-2022
+date: Jun 28, 2022
+description: Are you using Next JS on your website and want to add Google Analytics? In this blog post, we'll show you how to do it in just a few simple steps.
+thumbnailUrl: https://firebasestorage.googleapis.com/v0/b/pashubazzar-4ba5c.appspot.com/o/blog%2FPassing%20props%20in%20react%20app.png?alt=media&token=ad453f4f-41bf-4ec9-8fc7-3a4730c60efa
+tags:
+  - NextJS
+author: Durgesh Kumar
+
+relatedPosts:
+  - how-to-pass-props-between-components-in-reactjs
+  - how-to-implement-firebase-storage-in-a-react-web-app
+toc:
+  - listitem: Google Analytics Overview
+  - listitem: Steps to integrate Google Analytics with Next JS
+    sublist:
+      - listitem: Create a new property and data stream in Google Analytics
+      - listitem: Adding Measurement ID to Environment Variables
+      - listitem: Injecting Google Analytics into your Next JS Application
+      - listitem: Tracking page views with NextJS Router and Google Analytics
+
+keywords:
+  - Next Js
+  - Google Analytics
+  - Google Analytics Integration
+---
+
+## 1. Google Analytics Overview
+
+If you own a website, you should use an analytics tool to measure traffic and observe how visitors interact with it. Google Analytics is a free tool that does just that. It's a powerful tool that can provide you with a wealth of information about the traffic on your website, and it's simple to set up.
+
+So, why should you use Google Analytics? For one thing, it may assist you track your website's traffic and discover where your visitors are coming from. It may also help you measure your conversion rate and analyse how visitors interact with your website. It may also help you debug website bugs and monitor how your site performs in different browsers and devices.
+
+Google Analytics is a powerful tool that can help you track the performance of your website. Overall, Google Analytics is a useful tool for understanding your website's traffic and determining how to enhance it. If you aren't already using it, you should think about incorporating it into your website. In this blog post, we'll see how to integrate Google Analytics into a Next JS website in 5 easy steps.
+
+## 2. Steps to integrate Google Analytics with Next JS
+
+### 2.1. Create a new property and data stream in Google Analytics
+
+Before we begin writing code, we should first create a new account and a new property in Google Analytics. Here are the steps.
+
+&#9658; Navigate to [https://analytics.google.com/](https://analytics.google.com/) and create an account if you haven't already.
+&#9658; After you create a new account, you will be led to create a new property. If not, click the cog symbol in the bottom left corner of your screen and select Create New Property.
+&#9658; Fill in your property name, timezone, and currency, and then click next.
+&#9658; In the following step, choose your business type and tick the options that you want in your Google Analytics account. I recommend that you go through everything to get the most out of it. Then press the next button.
+&#9658; You have just added a new property to your account. It is now time to set up a stream.
+
+**Creating Data stream and Getting the measurement ID**
+
+Click web, then add your website URL and stream name of choice before clicking next. (Note: The URL of the website cannot be localhost:/xxxx.)
+
+Following that, you'll be given tagging information as well as a Measurement ID. If you do not get your Measurement ID, go to Home and click on Get Tagging Instructions to obtain it.
+
+### 2.2. Adding Measurement ID to Environment Variables
+
+If your NextJS application already has a .env.local file, simply add your Measurement ID to it. If you don't have a .env.local file, create one and add it to .gitignore so that your Measurement ID is not publicly exposed.
+
+```json
+NEXT_PUBLIC_GOOGLE_ANALYTICS=X-XXXXXXXXXX
+```
+
+### 2.3. Injecting Google Analytics into your Next JS Application
+
+We will now setup Google Analytics in the next js application to send data and information to Google Analytics.
+
+One thing to keep in mind concerning Google Analytics is that it must operate globally in order for us to transmit data from every page. And in order to run it globally, we must write our code in the \_app.js file.
+
+```js
+import "../styles/globals.css";
+import Script from "next/script";
+
+function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+<Script
+	strategy="afterInteractive"
+	src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+/>
+
+<Script
+	id="google-analytics"
+	strategy="afterInteractive">
+	{`
+		window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+	    page_path: window.location.pathname,
+	  });
+	`}
+/>
+
+  return (
+      <Component {...pageProps} />
+  );
+}
+
+export default MyApp;
+```
+
+This snippet loads the gtag.js library, establishes `GA_MEASUREMENT_ID` as the default Google Analytics property ID, and sends a [pageview hit](https://support.google.com/analytics/answer/6086080) to Google Analytics.
+
+Make sure your give **afterInteractive** as your Script strategy. It means that it will wait until the entire page is loaded.
+
+It's as simple as that! Simply follow these steps, and your Next JS site will have Google Analytics up and running in no time. This should get you started with Google Analytics. It takes 24-48 hours for data to appear in Google Analytics.
+
+### 2.4 Tracking page views with NextJS Router and Google Analytics
+
+We will now add code to our NextJS application to track page views by connecting Google Analytics with next/router. When the user goes an alternate route, an event is triggered that sends data to Google Analytics.
+
+```jsx
+import "../styles/globals.css";
+import Script from "next/script";
+import { useRouter } from "next/router";
+
+function MyApp({ Component, pageProps }) {
+  const router=useRouter();
+
+<Script
+	strategy="afterInteractive"
+	src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+/>
+
+<Script
+	id="google-analytics"
+	strategy="afterInteractive">
+	{`
+		window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+	    page_path: window.location.pathname,
+	  });
+	`}
+/>
+
+useEffect(() => {
+    const handleRouteChange = (url) => {
+			window.gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
+			    page_title,
+			    page_path: url,
+			    page_location,
+			  });
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
+  return (
+      <Component {...pageProps} />
+  );
+}
+
+export default MyApp;
+```
+
+We're simply checking for new events happening with your router using useEffect in our \_app.js file.
+
+In NextJS, there are many different types of router events, but we only care when visitors successfully navigate to a new page, for which we have a router event named `routeChangeComplete`.
+
+When we mount the component, we subscribe to router changes and log those values using the `on` function.
+
+When the component is unmounted, we use the `off` function to unsubscribe from the event.
+
+### Google Analytics Integrated with NextJS
+
+It's as simple as that! Simply follow these steps, and your Next JS site will have Google Analytics up and running in no time. This should get you started with Google Analytics. It takes 24-48 hours for data to appear in Google Analytics.

@@ -1,5 +1,7 @@
 import React from "react";
 import Head from "next/head";
+// import logo from "../../public/favicon/android-chrome-512x512.png";
+// import Script from "next/script";
 const Seo = (props) => {
   const {
     title,
@@ -13,6 +15,30 @@ const Seo = (props) => {
     canonicalUrl,
     ogUrl,
   } = props;
+
+  // const schemaData = {
+  //   "@context": "https://schema.org",
+  //   "@type": "Blog",
+  //   mainEntityOfPage: {
+  //     "@type": "WebPage",
+  //     "@id": process.env.NEXT_PUBLIC_BASE_URL,
+  //   },
+  //   headline: title,
+  //   datePublished: date,
+  //   author: {
+  //     "@type": "WebPage",
+  //     name: "OurWeb",
+  //     url: process.env.NEXT_PUBLIC_BASE_URL,
+  //   },
+  //   publisher: {
+  //     "@type": "WebPage",
+  //     name: "OurWeb",
+  //     logo: {
+  //       "@type": "ImageObject",
+  //       url: logo,
+  //     },
+  //   },
+  // };
 
   // TODO: url is not behaving as expected. For indexjs and slug[] the cannonical and ogurl is diff;
 

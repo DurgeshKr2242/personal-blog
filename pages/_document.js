@@ -86,6 +86,7 @@ export default function Document() {
           content="tD25sMEwpvvFq8IAct2RlFq-csbxM3qEN-5RmH4_4Po"
         /> */}
         {/* Global Site Tag (gtag.js) - Google Analytics */}
+
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}

@@ -1,13 +1,15 @@
 ---
 title: How to Pass Props Between Components in ReactJS
-date: Jun 22, 2022
+date: Jun 25, 2022
 description: We will see how to pass props from parent to child and from child to parent. We will also look at some of the best practices when it comes to passing props
 thumbnailUrl: https://firebasestorage.googleapis.com/v0/b/pashubazzar-4ba5c.appspot.com/o/blog%2FPassing%20props%20in%20react%20app.png?alt=media&token=ad453f4f-41bf-4ec9-8fc7-3a4730c60efa
 tags:
   - ReactJs
 author: Durgesh Kumar
 
-relatedPosts: []
+relatedPosts:
+  - add-googl-analytics-in-next-js-in-4-simple-steps-2022
+  - how-to-implement-firebase-storage-in-a-react-web-app
 toc:
   - listitem: Why do we use props in React
   - listitem: How do we pass props
@@ -73,7 +75,7 @@ export default ListItem;
 
 This is what our starter project looks like:
 
-![Screenshot from 2022-06-08 01-13-22.png](http://ourweb.mo.cloudinary.net/assets/passing%20props%20parent%20to%20chikd%201.png)
+![Passing props from parent to child component Starter oroject](https://ourweb.mo.cloudinary.net/assets/passing%20props%20parent%20to%20chikd%201.png)
 
 **Passing props in parent component:**
 
@@ -121,7 +123,7 @@ export default ListItem;
 
 And the output we get is:
 
-![Screenshot from 2022-06-08 01-12-41.png](http://ourweb.mo.cloudinary.net/assets/passing%20props%20parent%20to%20child%20final%20output.png)
+![Passing props from parent to child component Final Output](https://ourweb.mo.cloudinary.net/assets/passing%20props%20parent%20to%20child%20final%20output.png)
 
 ### 2.2 Passing props from child component to parent component
 
@@ -176,7 +178,7 @@ Here we are simply accepting props that we passed from the parent component abov
 
 This is how the project looks at the moment.
 
-![Screenshot from 2022-06-09 00-55-45.png](http://ourweb.mo.cloudinary.net/assets/passing%20props%20child%20to%20parent%20starte%20ui.png)
+![Passing props from child to parent component starter project](https://ourweb.mo.cloudinary.net/assets/passing%20props%20child%20to%20parent%20starte%20ui.png)
 
 <div id="passing-function-as-props-from-the-parent-component" />
 #### Passing function as props from the Parent Component.
@@ -225,7 +227,7 @@ export default ListItem;
 
 Now in the child component `ListItem` we have a _onClick_ function on the paragraph tag which contains the **setText** prop that we are receiving from the parent component. So when we click on the paragraph tag it will execute the setText prop which contains _changeText_ function and the text state will be changed to “Changed text”.
 
-![Screenshot from 2022-06-09 08-16-53.png](http://ourweb.mo.cloudinary.net/assets/passing%20props%20child%20to%20parent%20output1.png)
+![Passing props from child to parent component output one](https://ourweb.mo.cloudinary.net/assets/passing%20props%20child%20to%20parent%20output1.png)
 
 And there you have it, we just made a change in the parent from the child component.
 This explains what occurred here. When we click on the first paragraph tag (since we only passed the setText prop to the first paragraph tag from the parent component to the child component), the _onClick_ fires the _setText_ fucnction that we are accepting as prop. And in the parent component, the _setText_ method contains the _changeText_ function. As a result, the _changeText_ function is called, and the text state's value is changed to "Changed text."
@@ -282,7 +284,7 @@ export default ListItem;
 
 Now when we click on the paragraph tag the text will get changed to whatever text we are passing as the argument in the function.
 
-![Screenshot from 2022-06-09 11-13-47.png](http://ourweb.mo.cloudinary.net/assets/passing%20props%20child%20to%20parent%20final%20output2.png)
+![Passing props from child to parent component output two](https://ourweb.mo.cloudinary.net/assets/passing%20props%20child%20to%20parent%20final%20output2.png)
 
 This is how we pass data from child component to the parent component dynamically.
 

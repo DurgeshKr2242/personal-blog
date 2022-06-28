@@ -1,18 +1,17 @@
 import React from "react";
 import theme from "prism-react-renderer/themes/nightOwl";
-import { useRouter } from "next/router";
 import SharePostComponent from "./SharePostComponent";
 import { MDXRemote } from "next-mdx-remote";
 import Link from "next/link";
 import { AiOutlineLink } from "react-icons/ai";
-import Image from "next/image";
+
 import SubscribeMailChimp from "./SubscribeMailChimp";
 
 const PostDetails = ({ frontMatter, slug, mdxSource }) => {
   const components = {
     code: (props) =>
       props.className ? (
-        <code className={props.className}>{props.children}</code>
+        <code className={`${props.className} text-base`}>{props.children}</code>
       ) : (
         <code className="rounded-sm bg-[#282C34] px-2 py-0.5 text-white ">
           {props.children}
@@ -34,8 +33,17 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
 
     // ol: (props) => {
     //   console.log(props);
-    //   return <p>what</p>;
+    //   return (
+    //     {props.children.map((listItem, i) =>{
+    //         i%2 ==1 && (
+    //           return(
+
+    //           )
+    //         )
+    //     })}
+    //   )
     // },
+
     h2: (props) => (
       <div className="flex items-center gap-2 mt-8">
         <h2 id={props.id}>{props.children.props.children}</h2>
@@ -61,8 +69,6 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
     h4: (props) => <h4>{props.children.props.children}</h4>,
     // code: (props) => <code className="bg-[#282C34]">{props.children}</code>,
   };
-
-  const router = useRouter();
 
   return (
     <article className="flex flex-col items-center justify-between object-contain w-full max-w-3xl gap-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 ">
@@ -182,8 +188,12 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
           Description={frontMatter.description}
           url={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${slug}`}
         />
-        <div className="flex flex-col object-contain w-full max-w-3xl gap-5 px-2 text-black whitespace-pre-wrap wrap customOverflowCode dark:text-white">
-          <MDXRemote {...mdxSource} components={components} />
+        <div className="flex flex-col object-contain w-full max-w-3xl gap-5 px-2 text-base text-black whitespace-pre-wrap wrap customOverflowCode dark:text-white">
+          <MDXRemote
+            className="text-base"
+            {...mdxSource}
+            components={components}
+          />
         </div>
 
         <SubscribeMailChimp />
