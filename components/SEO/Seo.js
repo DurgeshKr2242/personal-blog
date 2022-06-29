@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Script from "next/script";
 // import logo from "../../public/favicon/android-chrome-512x512.png";
 // import Script from "next/script";
 const Seo = (props) => {
@@ -16,31 +17,37 @@ const Seo = (props) => {
     ogUrl,
   } = props;
 
-  // const schemaData = {
-  //   "@context": "https://schema.org",
-  //   "@type": "Blog",
-  //   mainEntityOfPage: {
-  //     "@type": "WebPage",
-  //     "@id": process.env.NEXT_PUBLIC_BASE_URL,
-  //   },
-  //   headline: title,
-  //   datePublished: date,
-  //   author: {
-  //     "@type": "WebPage",
-  //     name: "OurWeb",
-  //     url: process.env.NEXT_PUBLIC_BASE_URL,
-  //   },
-  //   publisher: {
-  //     "@type": "WebPage",
-  //     name: "OurWeb",
-  //     logo: {
-  //       "@type": "ImageObject",
-  //       url: logo,
-  //     },
-  //   },
-  // };
-
-  // TODO: url is not behaving as expected. For indexjs and slug[] the cannonical and ogurl is diff;
+  function addProductJsonLd() {
+    return {
+      __html: `
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "${ogUrl}"
+        },
+        "headline": "${title}",
+        "description": "${description}",
+        "image": "",  
+        "author": {
+          "@type": "Organization",
+          "name": "OurWeb",
+          "url": "https://www.ourweb.blog"
+        },  
+        "publisher": {
+          "@type": "Organization",
+          "name": "OurWeb",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://firebasestorage.googleapis.com/v0/b/pashubazzar-4ba5c.appspot.com/o/blog%2FFrame%201%20(2).png?alt=media&token=f4852857-1c8a-41c8-bb8d-6c264912dce2"
+          }
+        },
+        "datePublished": "${new Date(date).toISOString()}"
+      }
+  `,
+    };
+  }
 
   return (
     <Head>
@@ -83,6 +90,10 @@ const Seo = (props) => {
       {/* <meta name="twitter:card" content="summary_large_image" /> */}
       {/* <meta name="twitter:image" content={shareImage} /> */}
       {/* <meta name="twitter:image:alt" content={title} /> */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={addProductJsonLd()}
+      />
     </Head>
   );
 };

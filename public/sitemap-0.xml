@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://ourweb.vercel.app</loc><lastmod>2022-06-16T15:50:45.758Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ourweb.vercel.app/blogs/implementing-firebase-storage-in-a-react-app-web-app</loc><lastmod>2022-06-16T15:50:45.758Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://ourweb.vercel.app/blogs/passing-props-in-react-js</loc><lastmod>2022-06-16T15:50:45.758Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.ourweb.blog</loc><lastmod>2022-06-28T18:55:58.109Z</lastmod><changefreq>monthly</changefreq><priority>1</priority></url>
+<url><loc>https://www.ourweb.blog/blogs/add-googl-analytics-in-next-js-in-4-simple-steps-2022</loc><lastmod>2022-06-28T18:55:58.109Z</lastmod><changefreq>monthly</changefreq><priority>1</priority></url>
+<url><loc>https://www.ourweb.blog/blogs/how-to-pass-props-between-components-in-reactjs</loc><lastmod>2022-06-28T18:55:58.109Z</lastmod><changefreq>monthly</changefreq><priority>1</priority></url>
+<url><loc>https://www.ourweb.blog/blogs/how-to-implement-firebase-storage-in-a-react-web-app</loc><lastmod>2022-06-28T18:55:58.109Z</lastmod><changefreq>monthly</changefreq><priority>1</priority></url>
 </urlset>

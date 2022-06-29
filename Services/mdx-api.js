@@ -24,6 +24,9 @@ export const getAllBlogsForMdx = () => {
   // if (window) {
   //   localStorage.setItem("AllBlogsForOurWeb", posts);
   // }
+  posts.sort((x, y) => {
+    return new Date(x.frontMatter.date) < new Date(y.frontMatter.date) ? 1 : -1;
+  });
 
   return posts;
 };
