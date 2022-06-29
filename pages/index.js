@@ -36,6 +36,7 @@ export default function Home({ blogs, recentBlogs }) {
           "site",
           "website",
         ]}
+        showJsonLd={false}
       />
       <div className="my-20 flex w-full max-w-[1440px] flex-col gap-20 px-2 mobileL:px-5">
         <Hero recentBlogs={recentBlogs} />

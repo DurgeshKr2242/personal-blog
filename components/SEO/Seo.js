@@ -3,49 +3,62 @@ import Head from "next/head";
 import Script from "next/script";
 // import logo from "../../public/favicon/android-chrome-512x512.png";
 // import Script from "next/script";
-const Seo = (props) => {
-  const {
-    title,
-    description,
-    // url,
-    shareImage,
-    keywords,
-    author,
-    tag,
-    date,
-    canonicalUrl,
-    ogUrl,
-  } = props;
+const Seo = ({
+  title,
+  description,
+  // url,
+  shareImage,
+  keywords,
+  author,
+  tag,
+  date,
+  canonicalUrl,
+  ogUrl,
+  showJsonLd = true,
+}) => {
+  // const {
+  //   title,
+  //   description,
+  //   // url,
+  //   shareImage,
+  //   keywords,
+  //   author,
+  //   tag,
+  //   date,
+  //   canonicalUrl,
+  //   ogUrl,
+  //   showJsonLd = true,
+  // } = props;
 
   function addProductJsonLd() {
     return {
       __html: `
-      {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "${ogUrl}"
-        },
-        "headline": "${title}",
-        "description": "${description}",
-        "image": "",  
-        "author": {
-          "@type": "Organization",
-          "name": "OurWeb",
-          "url": "https://www.ourweb.blog"
-        },  
-        "publisher": {
-          "@type": "Organization",
-          "name": "OurWeb",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://firebasestorage.googleapis.com/v0/b/pashubazzar-4ba5c.appspot.com/o/blog%2FFrame%201%20(2).png?alt=media&token=f4852857-1c8a-41c8-bb8d-6c264912dce2"
-          }
-        },
-        "datePublished": "${new Date(date).toISOString()}"
-      }
-  `,
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "${ogUrl}"
+          },
+          "headline": "${title}",
+          "description": "${description}",
+          "image": "",  
+          "author": {
+            "@type": "Organization",
+            "name": "OurWeb",
+            "url": "https://www.ourweb.blog"
+          },  
+          "publisher": {
+            "@type": "Organization",
+            "name": "OurWeb",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://firebasestorage.googleapis.com/v0/b/pashubazzar-4ba5c.appspot.com/o/blog%2FFrame%201%20(2).png?alt=media&token=f4852857-1c8a-41c8-bb8d-6c264912dce2"
+            }
+          },
+          "datePublished": "${new Date(date).toISOString()}"
+        }
+    `,
     };
   }
 
@@ -90,10 +103,13 @@ const Seo = (props) => {
       {/* <meta name="twitter:card" content="summary_large_image" /> */}
       {/* <meta name="twitter:image" content={shareImage} /> */}
       {/* <meta name="twitter:image:alt" content={title} /> */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={addProductJsonLd()}
-      />
+
+      {showJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={addProductJsonLd()}
+        />
+      )}
     </Head>
   );
 };
