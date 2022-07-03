@@ -1,15 +1,23 @@
 ---
 title: Add Google Analytics in Next JS in 4 Simple Steps-2022
+
 date: Jun 29, 2022
-description: Are you using Next JS on your website and want to add Google Analytics? In this blog post, we'll show you how to do it in just a few simple steps.
+
+description:
+  Are you using Next JS on your website and want to add Google Analytics? In
+  this blog post, we'll show you how to do it in just a few simple steps.
+
 thumbnailUrl: https://firebasestorage.googleapis.com/v0/b/pashubazzar-4ba5c.appspot.com/o/blog%2FPassing%20props%20in%20react%20app.png?alt=media&token=ad453f4f-41bf-4ec9-8fc7-3a4730c60efa
+
 tags:
   - NextJS
+
 author: Durgesh Kumar
 
 relatedPosts:
   - how-to-pass-props-between-components-in-reactjs
   - how-to-implement-firebase-storage-in-a-react-web-app
+
 toc:
   - listitem: Google Analytics Overview
   - listitem: Steps to integrate Google Analytics with Next JS
@@ -18,6 +26,7 @@ toc:
       - listitem: Adding Measurement ID to Environment Variables
       - listitem: Injecting Google Analytics into your Next JS Application
       - listitem: Tracking page views with NextJS Router and Google Analytics
+      - listitem: Tracking Form Submissions Button Clicks etc with Google Analytics Events
 
 keywords:
   - Next Js
@@ -45,7 +54,7 @@ Before we begin writing code, we should first create a new account and a new pro
 &#9658; In the following step, choose your business type and tick the options that you want in your Google Analytics account. I recommend that you go through everything to get the most out of it. Then press the next button.
 &#9658; You have just added a new property to your account. It is now time to set up a stream.
 
-**Creating Data stream and Getting the measurement ID**
+#### Creating Data stream and Getting the measurement ID
 
 Click web, then add your website URL and stream name of choice before clicking next. (Note: The URL of the website cannot be localhost:/xxxx.)
 
@@ -163,16 +172,16 @@ When we mount the component, we subscribe to router changes and log those values
 
 When the component is unmounted, we use the `off` function to unsubscribe from the event.
 
-### 2.4 Tracking Form Submissions, Button Clicks, etc with Google Analytics Events
+### 2.5 Tracking Form Submissions Button Clicks etc with Google Analytics Events
 
 With Google Analytics Events, we can even track button clicks, form submissions, and more.
 So let's see how we can create a Google Analytics event. We use the gtag.js event command with the following syntax:
 
 ```js
-gtag('event', <action>, {
-  'event_category': <category>,
-  'event_label': <label>,
-  'value': <value>
+gtag("event", action, {
+  event_category: category,
+  event_label: label,
+  value: value,
 });
 ```
 
