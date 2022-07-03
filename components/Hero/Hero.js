@@ -37,22 +37,13 @@ const Hero = ({ recentBlogs }) => {
           </p>
         </div>
         <div className="w-full ">
-          {/* <AiFillCaretRight
-            onClick={leftHandler}
-            className="cursor-pointer font-semibold transition-colors  rounded-full  hover:text-Red text-4xl absolute top-[50%] rotate-180 left-0 opacity-80"
-          /> */}
           <RecentPosts postData={recentBlogs[index]} />
-          {/* <RecentPosts postData={recentPosts[index]} /> */}
-          {/* <AiFillCaretRight
-            onClick={rightHandler}
-            className="cursor-pointer font-semibold transition-colors  rounded-full  hover:text-Red text-4xl absolute top-[50%]  right-0 opacity-80"
-          /> */}
         </div>
       </div>
       <div className="flex min-h-[32px] w-full items-center justify-between gap-3">
         <AiFillCaretRight
           onClick={leftHandler}
-          className="left-0 text-4xl font-semibold transition-colors rotate-180 rounded-full cursor-pointer opacity-80 hover:text-Red"
+          className="text-4xl transition-colors rotate-180 rounded-full cursor-pointer opacity-80 hover:text-Red"
         />
 
         <div className="flex min-h-[32px] items-center gap-3">
@@ -77,7 +68,7 @@ const Hero = ({ recentBlogs }) => {
         </div>
         <AiFillCaretRight
           onClick={rightHandler}
-          className="right-0 text-4xl font-semibold transition-colors rounded-full cursor-pointer opacity-80 hover:text-Red"
+          className="text-4xl transition-colors rounded-full cursor-pointer opacity-80 hover:text-Red"
         />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import theme from "prism-react-renderer/themes/nightOwl";
+// import theme from "prism-react-renderer/themes/nightOwl";
 import SharePostComponent from "./SharePostComponent";
 import { MDXRemote } from "next-mdx-remote";
 import Link from "next/link";
@@ -31,19 +31,6 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
       );
     },
 
-    // ol: (props) => {
-    //   console.log(props);
-    //   return (
-    //     {props.children.map((listItem, i) =>{
-    //         i%2 ==1 && (
-    //           return(
-
-    //           )
-    //         )
-    //     })}
-    //   )
-    // },
-
     h2: (props) => (
       <div className="flex items-center gap-2 mt-8">
         <h2 id={props.id}>{props.children.props.children}</h2>
@@ -72,10 +59,6 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
 
   return (
     <article className="flex flex-col items-center justify-between object-contain w-full max-w-3xl gap-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 ">
-      {/* <div className="flex justify-start w-full ">
-        <p className="text-sm btn bg-Red hover:underline">#Productivity</p>
-      </div> */}
-
       <header className="w-full max-w-3xl">
         {/* <img
           className="object-cover w-full shadow-lg h-80 "

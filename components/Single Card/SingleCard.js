@@ -57,7 +57,7 @@ const SingleCard = ({ title, name, date, description, slug, image }) => {
             </div>
             <div className="absolute bottom-0 right-0 flex justify-end">
               <button className="flex items-center gap-1 px-3 py-2 text-xs font-semibold text-white transition-colors bg-black group-hover:bg-Red dark:bg-white dark:text-black1 dark:group-hover:bg-Red dark:group-hover:text-white">
-                Read Article <AiOutlineRight className="font-bold" />
+                Read Article <AiOutlineRight />
               </button>
             </div>
           </div>

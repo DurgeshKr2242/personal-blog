@@ -3,7 +3,7 @@ import Head from "next/head";
 import Hero from "../components/Hero/Hero";
 import Trending from "../components/Trending/Trending";
 import AllPosts from "../components/All Posts/AllPosts";
-import axios from "axios";
+
 // import { getAllBlogs, getRecentBlogs } from "../Services/api";
 import Seo from "../components/SEO/Seo";
 import { getAllBlogsForMdx, getRecentBlogsForMdx } from "../Services/mdx-api";
@@ -18,7 +18,7 @@ export default function Home({ blogs, recentBlogs }) {
   return (
     <div className=" flex min-h-screen w-full flex-col items-center bg-gradient-to-r from-white1 to-white2 dark:from-[#000000] dark:to-[#130F40] dark:text-white">
       <Seo
-        title={"OurWEB"}
+        title={"OurWeb"}
         description="Technical blog website covering topics broadly related to web development."
         // url={`${process.env.NEXT_PUBLIC_BASE_URL}`}
         canonicalUrl={process.env.NEXT_PUBLIC_BASE_URL}

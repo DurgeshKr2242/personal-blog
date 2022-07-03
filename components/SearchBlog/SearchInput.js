@@ -47,6 +47,8 @@ const SearchInput = () => {
       <button
         onClick={cancelHandler}
         className="absolute right-0 top-1 bg-black px-3 py-[6px] text-lg font-semibold text-white dark:bg-white dark:text-black"
+        name="search-blogs"
+        aria-label="search-blogs"
       >
         {foundBlogs.length > 0 ? <ImCross /> : <FaSearch />}
       </button>

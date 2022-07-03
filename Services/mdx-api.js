@@ -77,14 +77,6 @@ export const getRecentBlogsForMdx = () => {
 // };
 
 export const getSearchBlogsFormdx = (q) => {
-  // const query = QueryString.stringify(
-  //   {
-  //     fields: ["title", "description", "slug"],
-  //   },
-  //   {
-  //     encodeValuesOnly: true,
-  //   }
-  // );
   const blogsss = localStorage.getItem("AllBlogsForOurWeb");
   // console.log("LOCALLL", blogsss);
   const searchBlogs = [{ title: "what" }];
@@ -95,10 +87,6 @@ export const getSearchBlogsFormdx = (q) => {
     threshold: 0.5,
     keys: ["title"],
   };
-
-  // const res = await axios.get(
-  //   `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs?${query}`
-  // );
 
   const fuse = new Fuse(searchBlogs, options);
   const result = fuse.search(q);

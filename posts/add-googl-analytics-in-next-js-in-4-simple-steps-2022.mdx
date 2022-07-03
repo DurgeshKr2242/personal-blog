@@ -65,7 +65,7 @@ We will now setup Google Analytics in the next js application to send data and i
 
 One thing to keep in mind concerning Google Analytics is that it must operate globally in order for us to transmit data from every page. And in order to run it globally, we must write our code in the \_app.js file.
 
-```js
+```js:pages/_app.js
 import "../styles/globals.css";
 import Script from "next/script";
 
@@ -108,7 +108,7 @@ It's as simple as that! Simply follow these steps, and your Next JS site will ha
 
 We will now add code to our NextJS application to track page views by connecting Google Analytics with next/router. When the user goes an alternate route, an event is triggered that sends data to Google Analytics.
 
-```jsx
+```js:pages/_app.js
 import "../styles/globals.css";
 import Script from "next/script";
 import { useRouter } from "next/router";
@@ -116,38 +116,35 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
   const router=useRouter();
 
-<Script
-	strategy="afterInteractive"
-	src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-/>
+  <Script
+  	strategy="afterInteractive"
+  	src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+  />
+  <Script
+  	id="google-analytics"
+  	strategy="afterInteractive">
+  	{`
+  		window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+  	gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+  		page_path: window.location.pathname,
+  	});
+  	`}
+  />
 
-<Script
-	id="google-analytics"
-	strategy="afterInteractive">
-	{`
-		window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	  gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-	    page_path: window.location.pathname,
-	  });
-	`}
-/>
+  useEffect(() => {
+  	const handleRouteChange = (url) => {
+  		window.gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
+  			page_path: url,
+  		});
+  	};
 
-useEffect(() => {
-    const handleRouteChange = (url) => {
-			window.gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
-			    page_title,
-			    page_path: url,
-			    page_location,
-			  });
-    };
+  	router.events.on("routeChangeComplete", handleRouteChange);
 
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
+  	return () => {
+  	router.events.off("routeChangeComplete", handleRouteChange);
+  	};
   }, [router.events]);
 
   return (
@@ -165,6 +162,54 @@ In NextJS, there are many different types of router events, but we only care whe
 When we mount the component, we subscribe to router changes and log those values using the `on` function.
 
 When the component is unmounted, we use the `off` function to unsubscribe from the event.
+
+### 2.4 Tracking Form Submissions, Button Clicks, etc with Google Analytics Events
+
+With Google Analytics Events, we can even track button clicks, form submissions, and more.
+So let's see how we can create a Google Analytics event. We use the gtag.js event command with the following syntax:
+
+```js
+gtag('event', <action>, {
+  'event_category': <category>,
+  'event_label': <label>,
+  'value': <value>
+});
+```
+
+- **action:** The accepted type is _string_ and the value will appear as the event action in Google Analytics Event reports.
+- **category:** The accepted type is _string_ and the default value is "general". The value will appear as the event category. You can leave it as general or create your custom category.
+- **label:** The accepted type is _string_ and the value will appear as the event label.
+- **value:** The accepted type is _number_ and the value should be a non negative integer that will appear as the event value.
+
+If `category` or `label` are omitted, they will be set to the default values of "(not set)".
+
+#### Lets look at an example:
+
+Suppose we have a contact form. And we want to track how many times users submit the contact form. We can do this by attaching Google Analytics Events in our form's handleSubmit function.
+
+```js:components/ContactForm.js
+const ContactForm = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+	window.gtag("event", "contact_form", {
+    event_category: "Contact",
+    event_label: email,
+    // value: value,
+  	});
+
+  };
+
+  ...
+  ...
+  ...
+
+```
+
+Now, every time the handleSubmit function is called successfully, a custom event will be logged in Google Analytics with the event action as "contact_form", the event_category as "Contact" and the event label as email that is entered by the user in the contact form.
+
+Likewise, we can send Google Analytics events from anywhere in our NextJS application, e.g. from an onClick function, an onSubmit function, etc.
+You can read more about Measuring Google Analytics Events [here](https://developers.google.com/analytics/devguides/collection/gtagjs/events).
 
 ### Google Analytics Integrated with NextJS
 

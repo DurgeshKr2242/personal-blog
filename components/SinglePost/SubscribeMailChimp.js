@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-
+import { event } from "../../Services/googleAnalytics";
 const CustomForm = ({ status, message, onValidated }) => {
   const [email, setEmail] = useState("");
   const [localStorageStatus, setLocalStorageStatus] = useState();
@@ -125,7 +125,15 @@ const SubscribeMailChimp = () => {
         <CustomForm
           status={status}
           message={message}
-          onValidated={(formData) => subscribe(formData)}
+          onValidated={(formData) => {
+            console.log(formData);
+            event({
+              action: "newsletter_subscribe",
+              category: "Newsletter",
+              label: formData.EMAIL,
+            });
+            subscribe(formData);
+          }}
         />
       )}
     />
