@@ -32,7 +32,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
     },
 
     h2: (props) => (
-      <div className="flex items-center gap-2 mt-8">
+      <div className="flex items-center gap-2 mt-8 font-display ">
         <h2 id={props.id}>{props.children.props.children}</h2>
         <a
           className="text-black no-underline decoration hover:text-Red/70 dark:text-white"
@@ -43,7 +43,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
       </div>
     ),
     h3: (props) => (
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 font-display ">
         <h3 id={props.id}>{props.children.props.children}</h3>
         <a
           className="text-black no-underline decoration hover:text-Red/70 dark:text-white"
@@ -53,7 +53,9 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
         </a>
       </div>
     ),
-    h4: (props) => <h4>{props.children.props.children}</h4>,
+    h4: (props) => (
+      <h4 className="font-display">{props.children.props.children}</h4>
+    ),
     // code: (props) => <code className="bg-[#282C34]">{props.children}</code>,
   };
 
@@ -88,7 +90,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
         <div className="flex flex-col items-start gap-6 px-2 pt-6 tablet:px-8 mobileL:max-w-3xl">
           <div className="flex flex-col w-full gap-4 ">
             <div className="flex flex-col mb-10">
-              <h1 className="mb-8 max-w-[80%] text-left text-4xl font-bold laptop:mt-6">
+              <h1 className="mb-8 max-w-[80%] text-left font-display text-4xl font-bold laptop:mt-6">
                 {frontMatter.title}
               </h1>
               <div className="w-40 h-2 bg-Red"></div>
@@ -98,7 +100,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
             </p>
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="text-xl">Long Story Short </h2>
+            <h2 className="text-xl font-display">Long Story Short </h2>
             <div className="h-1.5 w-14 bg-Red/80"></div>
             <p className="text-left text-black dark:text-white">
               {/* <span className="font-semibold text-black dark:text-white"> */}
@@ -109,7 +111,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
 
           {frontMatter.toc && (
             <div className="flex flex-col gap-2">
-              <h2 className="text-xl">Table Of Content </h2>
+              <h2 className="text-xl font-display">Table Of Content </h2>
               <div className="h-1.5 w-14 bg-Red/80"></div>
               <div className="text-left text-black dark:text-white">
                 <ol>

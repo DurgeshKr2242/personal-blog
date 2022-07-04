@@ -8,19 +8,7 @@ export default function Document() {
           name="google-site-verification"
           content="tD25sMEwpvvFq8IAct2RlFq-csbxM3qEN-5RmH4_4Po"
         />
-
-        {/* <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png" /> */}
-
         <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
-        {/* <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="167x167" href="/favicon/apple-touch-icon-167x167.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon-180x180.png" /> */}
-
         <link
           rel="icon"
           type="image/png"
@@ -50,42 +38,12 @@ export default function Document() {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
 
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
-        <title>Our Web</title>
-        <link rel="canonical" href={process.env.NEXT_PUBLIC_BASE_URL} />
-        <meta
-          name="description"
-          content="Technical blog website covering topics broadly related to web development."
-          key="description"
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet"
         />
-        <meta
-          name="keywords"
-          content="web development, web dev, web dev blog, web development blog, technical blog, firebase, next js blog"
-        />
-        <meta name="author" content="Durgesh Kumar" />
-
-        
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Our Web" />
-        <meta
-          property="og:url"
-          content={process.env.NEXT_PUBLIC_BASE_URL}
-          key="og:url"
-        />
-        <meta property="og:title" content="Our Web" key="og:title" />
-
-
-        <meta
-          name="twitter:card"
-          content="summary_large_image"
-          key="twitter:card"
-        />
-        <meta
-          name="google-site-verification"
-          content="tD25sMEwpvvFq8IAct2RlFq-csbxM3qEN-5RmH4_4Po"
-        /> */}
-        {/* Global Site Tag (gtag.js) - Google Analytics */}
       </Head>
       <body>
         <Main />

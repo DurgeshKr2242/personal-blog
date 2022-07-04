@@ -19,9 +19,9 @@ module.exports = {
       navBreakM: "547px",
     },
     fontFamily: {
-      display: ["Poppins", "sans-serif"],
+      display: ["Roboto", "sans-serif"],
       body: ["IBM Plex Sans", "sans-serif"],
-      logo: ["Bungee", "cursive"],
+      logo: ["Bebas Neue", "cursive"],
     },
     extend: {
       colors: {

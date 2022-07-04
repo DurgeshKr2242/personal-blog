@@ -31,8 +31,8 @@ const Hero = ({ recentBlogs }) => {
     <div className="flex flex-col items-center w-full gap-6 pt-6 pb-10">
       <div className="flex flex-col items-start w-full gap-14">
         <div className="flex max-w-xs flex-col gap-3 border-l-8 border-black pt-[1px] pb-3 pl-3 dark:border-white">
-          <p className="text-4xl font-bold">Latest Blogs</p>
-          <p className="font-display text-black/80 dark:text-white/70">
+          <p className="text-4xl font-bold font-display">Latest Blogs</p>
+          <p className=" text-black/80 dark:text-white/70">
             The top three most recent blogs are right here. Take a look!
           </p>
         </div>
@@ -43,7 +43,7 @@ const Hero = ({ recentBlogs }) => {
       <div className="flex min-h-[32px] w-full items-center justify-between gap-3">
         <AiFillCaretRight
           onClick={leftHandler}
-          className="text-4xl transition-colors rotate-180 rounded-full cursor-pointer opacity-80 hover:text-Red"
+          className="text-4xl transition-colors rotate-180 rounded-full cursor-pointer font-display opacity-80 hover:text-Red"
         />
 
         <div className="flex min-h-[32px] items-center gap-3">
@@ -68,7 +68,7 @@ const Hero = ({ recentBlogs }) => {
         </div>
         <AiFillCaretRight
           onClick={rightHandler}
-          className="text-4xl transition-colors rounded-full cursor-pointer opacity-80 hover:text-Red"
+          className="text-4xl transition-colors rounded-full cursor-pointer font-display opacity-80 hover:text-Red"
         />
       </div>
     </div>

@@ -23,9 +23,9 @@ const RecentPosts = ({ postData }) => {
 
   return (
     <div className="group flex h-max max-h-[432px] w-full flex-col items-center justify-center  bg-gray-900/10  shadow-sm transition-all  dark:bg-gray-200/10 tablet:flex-row  ">
-      <div className=" flex min-h-[400px] max-w-3xl flex-col items-start gap-0 tablet:min-h-[414px] tablet:gap-10 tabletM:flex-row ">
+      <div className=" flex min-h-[400px] max-w-4xl flex-col items-start gap-0 tablet:min-h-[344px] tablet:gap-10 tabletM:flex-row ">
         <div className="flex flex-col items-start gap-4 px-2 py-2 rounded-r-xl tablet:items-start tabletS:py-6 tabletS:px-6">
-          <p className="text-left text-2xl font-bold leading-[1.2] tablet:text-left tablet:text-4xl mobileL:leading-snug">
+          <p className="text-left font-display text-2xl font-bold leading-[1.2] tablet:text-left tablet:text-4xl mobileL:leading-snug">
             {postData.frontMatter.title}
           </p>
           <div className="flex flex-col items-start gap-2 tablet:items-start">

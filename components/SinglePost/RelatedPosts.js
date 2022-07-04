@@ -4,8 +4,8 @@ import SinglePost from "./SinglePost";
 
 const RelatedPosts = ({ relatedPost }) => {
   return (
-    <section className="px-0 pt-6 pb-8 mt-6 shadow-md mobileL:max-w-3xl tablet:px-8 bg-gray-200/30 dark:bg-gray-900/30 ">
-      <header className="px-2 mb-4 text-2xl font-bold">
+    <section className="px-0 pt-6 pb-8 mt-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 tablet:px-8 mobileL:max-w-3xl ">
+      <header className="px-2 mb-4 text-2xl font-bold font-display">
         Check These Posts as well
       </header>
       {/* <div className="flex-col items-start w-full">

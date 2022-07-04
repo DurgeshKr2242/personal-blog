@@ -25,7 +25,9 @@ const GoogleAdsenseContainerBottom = ({ slot }) => {
     </div> */}
 
       <section className="px-0 pt-6 pb-8 mt-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 tablet:px-8 mobileL:max-w-3xl ">
-        <header className="px-2 mb-4 text-2xl font-bold">Advertisment</header>
+        <header className="px-2 mb-4 text-2xl font-bold font-display">
+          Advertisment
+        </header>
 
         <div className="w-full gap-3 mt-5">
           <ins

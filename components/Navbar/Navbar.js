@@ -12,9 +12,9 @@ const Navbar = () => {
         <DarkModeSwitch></DarkModeSwitch>
         <h1
           onClick={() => router.replace("/")}
-          className="text-4xl font-bold cursor-pointer font-logo"
+          className="text-4xl font-extrabold tracking-wider cursor-pointer font-logo"
         >
-          Our<span className="text-Red">Web</span>
+          our<span className="text-Red">Web</span>
         </h1>
         {/* <p className="text-lg font-bold ">Home / Blogs</p> */}
         <SearchInput />
