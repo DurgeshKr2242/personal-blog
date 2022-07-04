@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }) {
       {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2049214692599366"
      crossorigin="anonymous"></script> */}
 
-      <Script
+      {/* <Script
         id="Adsense-id"
         async
         strategy="afterInteractive"
@@ -50,7 +50,12 @@ function MyApp({ Component, pageProps }) {
           console.error("AdSense Script failed to load", e);
         }}
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID}`}
-      />
+      /> */}
+      <script
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID}`}
+        crossOrigin="anonymous"
+      ></script>
 
       <div className="relative" id="appId">
         <Navbar />

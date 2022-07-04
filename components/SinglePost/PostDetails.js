@@ -11,9 +11,9 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
   const components = {
     code: (props) =>
       props.className ? (
-        <code className={`${props.className} text-base`}>{props.children}</code>
+        <code className={`${props.className} `}>{props.children}</code>
       ) : (
-        <code className="rounded-sm bg-[#282C34] px-2 py-0.5 text-white ">
+        <code className="rounded-sm bg-[#282C34] px-2 py-0.5  text-white ">
           {props.children}
         </code>
       ),
@@ -24,7 +24,7 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
       return (
         <pre
           // className={`w-full my-[1em] p-[0.5em] text-left overflow-scroll max-w-sm relative`} //For scroll
-          className={`relative my-[1em]  w-full whitespace-pre-wrap break-all text-left text-base font-normal not-italic`} //For wrap
+          className={`relative my-[1em]  w-full whitespace-pre-wrap break-all text-left  font-normal not-italic`} //For wrap
         >
           {props.children}
         </pre>
@@ -171,12 +171,8 @@ const PostDetails = ({ frontMatter, slug, mdxSource }) => {
           Description={frontMatter.description}
           url={`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${slug}`}
         />
-        <div className="flex flex-col object-contain w-full max-w-3xl gap-5 px-2 text-base text-black whitespace-pre-wrap wrap customOverflowCode dark:text-white">
-          <MDXRemote
-            className="text-base"
-            {...mdxSource}
-            components={components}
-          />
+        <div className="flex flex-col object-contain w-full max-w-3xl gap-5 px-2 text-black whitespace-pre-wrap wrap customOverflowCode dark:text-white">
+          <MDXRemote {...mdxSource} components={components} />
         </div>
 
         <SubscribeMailChimp />
