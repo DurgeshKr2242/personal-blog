@@ -25,7 +25,7 @@ const SinglePost = ({ frontMatter, slug, mdxSource, relatedPost }) => {
         mdxSource={mdxSource}
       />
       {relatedPost.length > 0 && <RelatedPosts relatedPost={relatedPost} />}
-      <GoogleAdsenseContainerBottom slot="2403940860" />
+      <GoogleAdsenseContainerBottom slot="9201283501" />
       {/* </div> */}
       {/* <RightPane /> */}
     </main>

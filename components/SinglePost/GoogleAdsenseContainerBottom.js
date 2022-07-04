@@ -30,12 +30,20 @@ const GoogleAdsenseContainerBottom = ({ slot }) => {
         <div className="flex flex-wrap justify-center w-full gap-3 mt-5 tablet:justify-start">
           <ins
             className="adsbygoogle"
+            style={{ display: "block" }}
+            data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID}
+            data-ad-slot={slot}
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          ></ins>
+          {/* <ins
+            className="adsbygoogle"
             data-ad-format="autorelaxed"
             style={{ display: "block" }}
             data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID}
             data-ad-slot={slot}
             data-full-width-responsive="true"
-          ></ins>
+          ></ins> */}
         </div>
       </section>
     </>
