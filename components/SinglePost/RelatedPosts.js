@@ -3,6 +3,7 @@ import SingleCard from "../Single Card/SingleCard";
 import SinglePost from "./SinglePost";
 
 const RelatedPosts = ({ relatedPost }) => {
+  console.log(relatedPost);
   return (
     <section className="px-0 pt-6 pb-8 mt-6 shadow-md bg-gray-200/30 dark:bg-gray-900/30 tablet:px-8 mobileL:max-w-3xl ">
       <header className="px-2 mb-4 text-2xl font-bold font-display">
@@ -25,6 +26,7 @@ const RelatedPosts = ({ relatedPost }) => {
               title={post.frontMatter.title}
               name={post.frontMatter.author}
               date={post.frontMatter.date}
+              image={post.frontMatter.thumbnailUrl}
               // description=" We will see how to implementing firebase storage in a react web app, but the concept is the same in any technology, including vanilla javascript, Vue.Js, AngularJs, our good old jQuery, and others."
               slug={post.slug}
             />

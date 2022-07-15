@@ -3,6 +3,10 @@ module.exports = {
   reactStrictMode: true,
   images: {
     loader: "default",
-    domains: ["localhost", "firebasestorage.googleapis.com"],
+    domains: [
+      "localhost",
+      "firebasestorage.googleapis.com",
+      "ourweb.mo.cloudinary.net",
+    ],
   },
 };

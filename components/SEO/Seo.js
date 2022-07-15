@@ -16,20 +16,6 @@ const Seo = ({
   ogUrl,
   showJsonLd = true,
 }) => {
-  // const {
-  //   title,
-  //   description,
-  //   // url,
-  //   shareImage,
-  //   keywords,
-  //   author,
-  //   tag,
-  //   date,
-  //   canonicalUrl,
-  //   ogUrl,
-  //   showJsonLd = true,
-  // } = props;
-
   function addProductJsonLd() {
     return {
       __html: `
@@ -42,7 +28,7 @@ const Seo = ({
           },
           "headline": "${title}",
           "description": "${description}",
-          "image": "",  
+          "image": "${shareImage}",  
           "author": {
             "@type": "Organization",
             "name": "OurWeb",
@@ -85,8 +71,8 @@ const Seo = ({
         content={description}
         key="og:description"
       />
-      {/* <meta property="og:image" content={shareImage} key="og:image" /> */}
-      {/* <meta property="og:image:alt" content={title} /> */}
+      <meta property="og:image" content={shareImage} key="og:image" />
+      <meta property="og:image:alt" content={title} />
 
       {/* Article */}
       <meta property="article:published_time" content={new Date(date)} />
@@ -100,9 +86,9 @@ const Seo = ({
       })}
 
       {/* TWITTER */}
-      {/* <meta name="twitter:card" content="summary_large_image" /> */}
-      {/* <meta name="twitter:image" content={shareImage} /> */}
-      {/* <meta name="twitter:image:alt" content={title} /> */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={shareImage} />
+      <meta name="twitter:image:alt" content={title} />
 
       {showJsonLd && (
         <script

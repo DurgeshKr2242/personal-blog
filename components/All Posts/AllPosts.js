@@ -12,19 +12,37 @@ const AllPosts = ({ allBlogs }) => {
       </div>
 
       <div className="flex flex-wrap justify-center w-full gap-14">
+        {/* <ul className="flex flex-wrap gap-6"> */}
         {allBlogs.map((blog, i) => {
           return (
-            <SingleCard
-              key={blog.slug}
-              slug={blog.slug}
-              title={blog.frontMatter.title}
-              name={blog.frontMatter.author}
-              image={blog.frontMatter.thumbnailUrl}
-              date={blog.frontMatter.date}
-              description={blog.frontMatter.description}
-            />
+            <>
+              {/* <li className=" flex-[1_1_350px] flex-grow"> */}
+              <SingleCard
+                key={blog.slug}
+                slug={blog.slug}
+                title={blog.frontMatter.title}
+                name={blog.frontMatter.author}
+                image={blog.frontMatter.thumbnailUrl}
+                date={blog.frontMatter.date}
+                description={blog.frontMatter.description}
+              />
+              {/* </li> */}
+              {/* <li className="flex-[1_1_20rem] flex-grow">
+                <SingleCard
+                  key={blog.slug}
+                  slug={blog.slug}
+                  title={blog.frontMatter.title}
+                  name={blog.frontMatter.author}
+                  image={blog.frontMatter.thumbnailUrl}
+                  date={blog.frontMatter.date}
+                  description={blog.frontMatter.description}
+                />
+              </li> */}
+            </>
           );
         })}
+        {/* <li className="flex flex-grow-[3] "></li> */}
+        {/* </ul> */}
       </div>
     </div>
   );
