@@ -16,8 +16,8 @@ Deployed At: [Our Web](https://personal-blog-durgeshkr.vercel.app/)
 - Serving optimized images via cloudnary CDN.
 - Keeping Mailing list to send updated via mail to the subscribers 📨
 - Share blog to social media like Twitter, Facebook, Whatsapp, LinkedIn, Reddit. 🧑‍🏫
-- Added Sitemap at [https://www.ourweb.blog/sitemap.xml](https://personal-blog-durgeshkr.vercel.app/sitemap.xml) 🛣️
-- Added robots.txt at [https://www.ourweb.blog/robots.txt](https://personal-blog-durgeshkr.vercel.app/robots.txt)
+- Added Sitemap at [https://personal-blog-durgeshkr.vercel.app/sitemap.xml](https://personal-blog-durgeshkr.vercel.app/sitemap.xml) 🛣️
+- Added robots.txt at [https://personal-blog-durgeshkr.vercel.app/robots.txt](https://personal-blog-durgeshkr.vercel.app/robots.txt)
 - Custom SEO component with all the important meta tags. 🥇
 - Content clustering by implementing related post component.
 - Markdown using React Markdown. 📝
